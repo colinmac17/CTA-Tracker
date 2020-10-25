@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
-import {Home} from './Components/Home';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from './Components/Home';
 import {About} from './Components/About';
 import {TrainEta} from './Components/TrainEta';
 import {BusEta} from './Components/BusEta';
 import {Maps} from './Components/Maps';
 import {Favorites} from './Components/Favorites';
-import {Weather} from './Components/Weather';
+import Weather from './Components/Weather';
 import {NoMatch} from './Components/NoMatch';
 import {Nav} from './Components/Nav';
 
