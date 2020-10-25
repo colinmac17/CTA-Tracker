@@ -46,7 +46,7 @@ export function Nav() {
         <Container className={classes.nav}>
             <ul className={classes.list}>
                 <li className={classes.litem}>
-                    <h1 className={classes.title}>CTA Alerts</h1>
+                    <h1 className={classes.title}>CTA Tracker</h1>
                 </li>
                 <li className={classes.litem}>
                     <span className={classes.licon}>
