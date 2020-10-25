@@ -1,5 +1,5 @@
 import React from 'react';
 
-export function TrainEta() {
+export default function TrainEta() {
     return <h1>This is the train eta page</h1>;
 }
