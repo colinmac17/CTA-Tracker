@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 /**
  * We use the Grid component to make a responsive layout
  * On small screens and above the navbar is the leftmost three columns and the app components are the right most 9.
- * On mobile devices, the navbar is on top with components below
+ * On mobile devices, the navbar is on top with components
  */
 function App() {
   const classes = useStyles();
@@ -31,10 +31,10 @@ function App() {
     <Router>
       <div className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={3}>
+          <Grid item xs={12} sm={12} md={3}>
             <Nav />
           </Grid>
-          <Grid item xs={12} sm={9}>
+          <Grid item xs={12} sm={12} md={9}>
             <Switch>
                 <Route exact path="/">
                   <Home />
