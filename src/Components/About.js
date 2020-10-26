@@ -26,16 +26,15 @@ const TechList = [
 const TeamInfo = (props) => {
     return(
         <div>
-            <p>Team members:
+            <p>Team members:</p>
                 <ul>
                     {NameList.map(item => (
-                        <li key = {item}>
+                        <li key = {item.name}>
                             <div>{item.name}</div>
                             <a href={item.github} title={item.github}>Github</a>
                         </li>
                     ))}
                 </ul>
-            </p>
         </div>
     )
 }
@@ -43,13 +42,12 @@ const TeamInfo = (props) => {
 const TechUsed = (props) => {
     return(
         <div>
-            <p>Technologies used:
+            <p>Technologies used:</p>
                 <ul>
                     {TechList.map((item) =>(
-                        <li>{item}</li>
+                        <li key = {item}>{item}</li>
                     ))}
-                </ul>
-            </p>
+                </ul>  
         </div>
     )
 }

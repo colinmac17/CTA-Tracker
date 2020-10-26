@@ -21,6 +21,7 @@ class Bus{
     constructor(number,url){
         this.number = number;
         this.url = url;
+        this.key = Date.now()
     }
 }
 function AddBus(value){
@@ -31,35 +32,35 @@ function AddBus(value){
 }
 
 const BusMaps = (props) => {
+    BusNumber.forEach(AddBus)  
     return(
         <div>
-            <p>BusMaps
+            <p>BusMaps</p>
                 <ul>
                     {Buses.map(bus => (
-                        <li key = {bus}>
-                            <div>{bus.number}</div>
+                        <div key = {bus.number}>
+                            <li>{bus.number}</li>
                             <a href={bus.url} title={bus.url}>{bus.number}</a>
-                        </li>
+                        </div>
                     ))}
                 </ul>
-            </p>
         </div>
     )
 }
 
 const TrainMaps = (props) => {
+    TrainColor.forEach(AddTrain)
     return(
         <div>
-            <p>TrainMaps
+            <p>TrainMaps</p>
                 <ul>    
                     {TrainLines.map(train => (
-                        <li key = {train}>
-                            <div>{train.lineName}</div>
+                        <div key = {train.lineName}>
+                            <li>{train.lineName}</li>
                             <a href={train.url} title={train.url}>{train.lineName}</a>
-                        </li>
+                        </div>
                     ))}
                 </ul>
-            </p>
         </div>
     )
 }
@@ -74,6 +75,5 @@ const Maps = (props) => {
     )
 }
 
-{BusNumber.forEach(AddBus)}  
-{TrainColor.forEach(AddTrain)}
+
 export default Maps;
