@@ -15,11 +15,8 @@ class FlavorForm extends React.Component {
     }
   
     handleSubmit(event) {
-      if(this.state.value == null){
-        this.state.value = "redline";
-      }
       var newTrain = {
-        lineName: this.state.value,
+        lineName : this.state.value || "redline",
         url: "https://www.transitchicago.com/" + this.state.value + "/#map",
         key: Date.now()
       };
@@ -99,7 +96,7 @@ class ShowFav extends React.Component{
     var listItems = favEntries.map(this.addFav);
 
     return(
-      <div key={Date.now()}>
+      <div>
         <p>Your favorite train line(s): </p>
         <ul>{listItems}</ul>
       </div>
@@ -112,7 +109,6 @@ const Favorites = (props) => {
         <div>
             <h2>Favorites</h2>
             <FlavorForm />
-            {/* <ShowFav /> */}
         </div>
     )}
     
