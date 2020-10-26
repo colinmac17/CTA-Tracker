@@ -1,28 +1,13 @@
 import React from 'react';
 
 
-class Train{
-    constructor(line,url){
-        this.lineName = line;
-        this.url = url;
-    }
-}
-const FavTrain = [];
-// const options = [
-//     { lineName: 'redline', url: 'RedLine' },
-//     { lineName: 'blueline', url: 'BlueLine' },
-//     { lineName: 'brownline', url: 'BrownLine' },
-//     { lineName: 'greenline', url: 'GreenLine'}
-//   ];
-
-
 class FlavorForm extends React.Component {
-    
     constructor(props) {
       super(props);
-      this.state = {value: 'redline'};
+      this.state = {favs:[]};
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.deleteItem = this.deleteItem.bind(this);
     }
     
     handleChange(event) {
@@ -30,18 +15,38 @@ class FlavorForm extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('Your favorite train line is: ' + this.state.value);
-      var line = this.state.value;
-      var url = "https://www.transitchicago.com/" + this.state.value + "/#map";
-      var newTrain = new Train(line, url);
-      FavTrain.push(newTrain);
-      this.setState({value: event.target.value});
+      if(this.state.value == null){
+        this.state.value = "redline";
+      }
+      var newTrain = {
+        lineName: this.state.value,
+        url: "https://www.transitchicago.com/" + this.state.value + "/#map",
+        key: Date.now()
+      };
+
+      this.setState((prevState) => {
+        return { 
+          favs: prevState.favs.concat(newTrain) 
+        };
+      });
+
       event.preventDefault();
+    }
+
+    deleteItem(key){
+      var filterdItems = this.state.favs.filter(function (item){
+        return (item.key !== key);
+      });
+
+      this.setState({
+        favs : filterdItems
+      });
     }
 
     render() {
         return (
         <div>
+          <div>
           <form onSubmit={this.handleSubmit}>
             <label>
               <p>Pick your favorite train line:</p>
@@ -50,45 +55,58 @@ class FlavorForm extends React.Component {
                 <option value="blueline">BlueLine</option>
                 <option value="brownline">BrownLine</option>
                 <option value="greenline">GreenLine</option>
+                <option value="pinkline">PinkLine</option>
+                <option value="purpleline">PurpleLine</option>
+                <option value="yellowline">YellowLine</option>
               </select>
             </label>
-            <input type="submit" value="Submit" />
+            <button type="submit">Submit</button>
           </form>
-          <ShowFav />
+          </div>
+          <ShowFav entries={this.state.favs}
+                  delete={this.deleteItem}
+          />  
         </div>
-        
         );
     }
 }
 
+class ShowFav extends React.Component{
+  constructor(props){
+    super(props);
+    this.addFav = this.addFav.bind(this);
+  }
+  delete(key){
+    this.props.delete(key);
+  }
 
-
-
-const ShowFav = (props) => {
-    const [list, setList] = React.useState(FavTrain);
-
-    const handleClick = (lineName) => {
-        setList(list.filter(train => train.lineName !== lineName));
-      };
-
+  addFav(item){
     return (
-        <div>
-            <p>Your favorite train line(s): </p>
-            {FavTrain.map(train => (
-                        <li key = {train}>
-                            
-                            <a href={train.url} title={train.url}>{train.lineName}</a>
-                            
-                            <button type="button" onClick={() => handleClick(train)}>
-                                Remove
-                            </button>
-                        </li>
-            ))}
-        </div>
+      <div key={item.key}>
+        <li>
+        {/* <a href={item.url} title={item.url}>{item.lineName}</a> */}
+        {item.lineName}
+        <button type="button" onClick={() => this.delete(item.key)}>
+          Remove
+        </button>
+        </li>
+      </div>
     )
+  }
+
+  render(){
+    var favEntries = this.props.entries;
+    var listItems = favEntries.map(this.addFav);
+
+    return(
+      <div key={Date.now()}>
+        <p>Your favorite train line(s): </p>
+        <ul>{listItems}</ul>
+      </div>
+    );
+  }
 }
-    
-// export function Favorites() {
+
 const Favorites = (props) => {
     return (
         <div>
