@@ -13,6 +13,8 @@ import {NoMatch} from './Components/NoMatch';
 import {Nav} from './Components/Nav';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
+
 
 //@see https://material-ui.com/components/grid/#grid-with-breakpoints for documentation
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(1),
   },
 }))
 
@@ -38,12 +40,11 @@ function App() {
     <Router>
       <div className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={12} md={3}>
-            <Nav />
-          </Grid>
+        <Nav />
           <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Grid item xs={12} sm={12} md={9}>
+          <Container>
+          <Grid item xs={12} sm={12} md={9} className={classes.pushRight} >
             <Switch>
                 <Route exact path="/">
                   <Home />
@@ -71,6 +72,7 @@ function App() {
                 </Route>
             </Switch>
           </Grid>
+          </Container>
           </main>
         </Grid>
       </div>
