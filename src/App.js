@@ -44,7 +44,7 @@ function App() {
           <main className={classes.content}>
           <div className={classes.toolbar} />
           <Container>
-          <Grid item xs={12} sm={12} md={9} className={classes.pushRight} >
+          <Grid item xs={12} sm={12} md={9} >
             <Switch>
                 <Route exact path="/">
                   <Home />
