@@ -19,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+  },
 }))
 
 /**
@@ -35,6 +41,8 @@ function App() {
           <Grid item xs={12} sm={12} md={3}>
             <Nav />
           </Grid>
+          <main className={classes.content}>
+          <div className={classes.toolbar} />
           <Grid item xs={12} sm={12} md={9}>
             <Switch>
                 <Route exact path="/">
@@ -63,6 +71,7 @@ function App() {
                 </Route>
             </Switch>
           </Grid>
+          </main>
         </Grid>
       </div>
     </Router>
