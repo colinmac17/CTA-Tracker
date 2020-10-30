@@ -1,78 +1,156 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import TrainIcon from '@material-ui/icons/Train';
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Link from '@material-ui/core/Link';
 
-const TrainLines = []
-const TrainColor = ["Red", "Blue", "Brown", "Green", "Pink", "Purple", "Yellow"]
-class Train{
-    constructor(line,url){
-        this.lineName = line;
-        this.url = url;
-    }
-}
-function AddTrain(value){
-    var line = value+"Line";
-    var url = "https://www.transitchicago.com/" + line + "/#map";
-    var newTrain = new Train(line, url);
-    TrainLines.push(newTrain);
-}
+function TabPanel(props) {
+    const { children, value, index, ...other } = props;
+  
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`scrollable-force-tabpanel-${index}`}
+        aria-labelledby={`scrollable-force-tab-${index}`}
+        {...other}
+      >
+        {value === index && (
+          <Box p={3}>
+            <Typography>{children}</Typography>
+          </Box>
+        )}
+      </div>
+    );
+  }
+  
+  TabPanel.propTypes = {
+    children: PropTypes.node,
+    index: PropTypes.any.isRequired,
+    value: PropTypes.any.isRequired,
+  };
+  
+  function a11yProps(index) {
+    return {
+      id: `scrollable-force-tab-${index}`,
+      'aria-controls': `scrollable-force-tabpanel-${index}`,
+    };
+  }
+  
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      width: '100%',
+      backgroundColor: theme.palette.background.paper,
+    },
+  }));
+  
 
-const Buses = []
-const BusNumber = ["1", "3", "4", "J14"]
-class Bus{
-    constructor(number,url){
-        this.number = number;
-        this.url = url;
-        this.key = Date.now()
-    }
-}
-function AddBus(value){
-    var number = value;
-    var url = "https://www.transitchicago.com/assets/1/6/stoplist_"+value+".htm";
-    var newBus = new Bus(number, url);
-    Buses.push(newBus);
-}
+  function ScrollableTabsButtonForce() {
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
+  
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
+  
+    return (
+      <div className={classes.root}>
+        <AppBar position="static" color="default">
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            variant="scrollable"
+            scrollButtons="on"
+            indicatorColor="primary"
+            textColor="primary"
+            aria-label="scrollable force tabs example"
+          >
+            <Tab label="Train Maps" icon={<TrainIcon />} {...a11yProps(0)} />
+            <Tab label="Bus Maps" icon={<DirectionsBusIcon />} {...a11yProps(1)} />
+          </Tabs>
+        </AppBar>
+        <TabPanel value={value} index={0}>
+            <List className={classes.root}>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/redline/#map">
+                                        RedLine
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/blueline/#map">
+                                        BlueLine
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/brownline/#map">
+                                        BrownLine
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/greenline/#map">
+                                        GreenLine
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/pinkline/#map">
+                                        PinkLine
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/purpleline/#map">
+                                        PurpleLine
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/yellowline/#map">
+                                        YellowLine
+                    </Link>
+                </ListItem>
+            </List>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+            <List className={classes.root}>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/assets/1/6/stoplist_1.htm">
+                                        1
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/assets/1/6/stoplist_3.htm">
+                                        3
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/assets/1/6/stoplist_4.htm">
+                                        4
+                    </Link>
+                </ListItem>
+                <ListItem alignItems="flex-start">
+                    <Link href="https://www.transitchicago.com/assets/1/6/stoplist_J14.htm">
+                                        J14
+                    </Link>
+                </ListItem>
+            </List>
+        </TabPanel>
+      </div>
+    );
+  }
 
-const BusMaps = (props) => { 
-    return(
-        <div>
-            <p>BusMaps</p>
-                <ul>
-                    {Buses.map(bus => (
-                        <div key = {bus.number}>
-                            <li>{bus.number}</li>
-                            <a href={bus.url} title={bus.url}>{bus.number}</a>
-                        </div>
-                    ))}
-                </ul>
-        </div>
-    )
-}
-
-const TrainMaps = (props) => {
-    
-    return(
-        <div>
-            <p>TrainMaps</p>
-                <ul>    
-                    {TrainLines.map(train => (
-                        <div key = {train.lineName}>
-                            <li>{train.lineName}</li>
-                            <a href={train.url} title={train.url}>{train.lineName}</a>
-                        </div>
-                    ))}
-                </ul>
-        </div>
-    )
-}
-
-const Maps = (props) => {
+  const Maps = (props) => {
     return(
             <div>
-                <h3>Maps</h3>  
-                <BusMaps/>               
-                <TrainMaps/>
+                <ScrollableTabsButtonForce/>              
             </div>
     )
 }
-BusNumber.forEach(AddBus) 
-TrainColor.forEach(AddTrain)
+
 export default Maps;
