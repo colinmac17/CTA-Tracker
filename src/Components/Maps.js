@@ -31,8 +31,7 @@ function AddBus(value){
     Buses.push(newBus);
 }
 
-const BusMaps = (props) => {
-    BusNumber.forEach(AddBus)  
+const BusMaps = (props) => { 
     return(
         <div>
             <p>BusMaps</p>
@@ -49,7 +48,7 @@ const BusMaps = (props) => {
 }
 
 const TrainMaps = (props) => {
-    TrainColor.forEach(AddTrain)
+    
     return(
         <div>
             <p>TrainMaps</p>
@@ -74,6 +73,6 @@ const Maps = (props) => {
             </div>
     )
 }
-
-
+BusNumber.forEach(AddBus) 
+TrainColor.forEach(AddTrain)
 export default Maps;
