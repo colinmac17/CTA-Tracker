@@ -21,6 +21,8 @@ const myInit = {
     mode: 'no-cors',
 }
 
+const CONFIG = new Request(ARRIVALS_URL, myInit);
+
 /**
  * Define our API Object
  * We can add async functions, await the results, and return the data to our components. See TrainEta.js for an example use.
@@ -35,8 +37,5 @@ const API = {
         return await res.data
     }
 }
-
-const CONFIG = new Request(ARRIVALS_URL, myInit);
-
 
 export {API, CONFIG, ARRIVALS_URL};
