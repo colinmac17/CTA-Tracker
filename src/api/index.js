@@ -1,5 +1,6 @@
 /**
- * Add your APIKEY to a .env file in the root of the project
+ * Add your REACT_APP_CTA_API_KEY to a .env file in the root of the project
+ * React scripts automatcially includes .env vars into the proceess when prepended with REACT_APP_
  * Example:
  * REACT_APP_CTA_API_KEY=2434324fdfdsgdgddsfdsfndjfsd9
  */
@@ -11,7 +12,8 @@ const API_KEY = process.env.REACT_APP_CTA_API_KEY;
  * Look at console.log result to see data we get back
  * We can add the other API Urls here for other endpoints and export them
  */
-let ARRIVALS_URL = `https://cors-anywhere.herokuapp.com/http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=${API_KEY}`;
+const CORS_EVERYWHERE_URL = "https://cors-anywhere.herokuapp.com/";
+const ARRIVALS_URL = `${CORS_EVERYWHERE_URL}http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=${API_KEY}`;
 
 const myInit = {
     method: 'HEAD',
