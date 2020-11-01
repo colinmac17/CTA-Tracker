@@ -1,3 +1,4 @@
+import axios from 'axios';
 /**
  * Add your REACT_APP_CTA_API_KEY to a .env file in the root of the project
  * React scripts automatcially includes .env vars into the proceess when prepended with REACT_APP_
@@ -20,7 +21,22 @@ const myInit = {
     mode: 'no-cors',
 }
 
+/**
+ * Define our API Object
+ * We can add async functions, await the results, and return the data to our components. See TrainEta.js for an example use.
+ */
+const API = {
+    /**
+     * Gets Train Etas based on a mapId
+     * @param {int} mapId 
+     */
+    async getTrains(mapId){
+        const res = await axios.get(`${ARRIVALS_URL}&mapid=${mapId}&outputType=JSON`, CONFIG)
+        return await res.data
+    }
+}
+
 const CONFIG = new Request(ARRIVALS_URL, myInit);
 
 
-export {CONFIG, ARRIVALS_URL};
+export {API, CONFIG, ARRIVALS_URL};

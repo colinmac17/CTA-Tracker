@@ -1,8 +1,7 @@
 import React from 'react';
 import '../index.css';
-import axios from 'axios';
 // import Button from '@material-ui/core/Button';
-import {ARRIVALS_URL, CONFIG} from '../api/'
+import {API, ARRIVALS_URL, CONFIG} from '../api/'
 
 const trainLine = ["Red", "Blue", "Green", "Yellow", "Brown", "Purple", "Orange"];
 // const items = [];
@@ -21,21 +20,15 @@ class TrainETA extends React.Component {
         this.getTrains();
     }
 
-    getTrains(){
+    async getTrains(){
         /**
          * Example of how we can get data from the api into our component state
-         * I have hardcoded in a map id here for an exmaple. You will need to dynamically configure this url per the CTA docs
+         * I have hardcoded in a map id here for an exmaple.
          * */
-        axios.get(`${ARRIVALS_URL}&mapid=40360&outputType=JSON`, CONFIG)
-            .then((response) => {
-                console.log(response.data)
-                this.setState({
-                    data: response.data
-                })
-            }).catch(function(e){
-                console.log(e)
-                return false;
-            })
+        const data = await API.getTrains(40360);
+        this.setState({
+            data: data
+        })
     }
 
     render(){
