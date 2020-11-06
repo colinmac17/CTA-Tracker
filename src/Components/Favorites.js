@@ -1,89 +1,37 @@
 import React from 'react';
 
 
-class FlavorForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {favs:[]};
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.deleteItem = this.deleteItem.bind(this);
-    }
-    
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      var newTrain = {
-        lineName : this.state.value || "redline",
-        url: "https://www.transitchicago.com/" + this.state.value + "/#map",
-        key: Date.now()
-      };
-
-      this.setState((prevState) => {
-        return { 
-          favs: prevState.favs.concat(newTrain) 
-        };
-      });
-
-      event.preventDefault();
-    }
-
-    deleteItem(key){
-      var filterdItems = this.state.favs.filter(function (item){
-        return (item.key !== key);
-      });
-
-      this.setState({
-        favs : filterdItems
-      });
-    }
-
-    render() {
-        return (
-        <div>
-          <div>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              <p>Pick your favorite train line:</p>
-              <select value={this.state.value} onChange={this.handleChange}>
-                <option value="redline">RedLine</option>
-                <option value="blueline">BlueLine</option>
-                <option value="brownline">BrownLine</option>
-                <option value="greenline">GreenLine</option>
-                <option value="pinkline">PinkLine</option>
-                <option value="purpleline">PurpleLine</option>
-                <option value="yellowline">YellowLine</option>
-              </select>
-            </label>
-            <button type="submit">Submit</button>
-          </form>
-          </div>
-          <ShowFav entries={this.state.favs}
-                  delete={this.deleteItem}
-          />  
-        </div>
-        );
-    }
-}
-
 class ShowFav extends React.Component{
   constructor(props){
     super(props);
-    this.addFav = this.addFav.bind(this);
-  }
-  delete(key){
-    this.props.delete(key);
+    this.state = {favs:[]};
+    this.showFav = this.showFav.bind(this);
   }
 
-  addFav(item){
+  componentDidMount(){
+    const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
+
+    if(getArray !== 0){
+      this.setState({favs: getArray})
+    }
+  }
+
+  deleteFav(key){
+    const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
+    const update = getArray.filter(e => e.take !== key);//remove the element
+    this.setState(
+      {favs: update}
+    )
+    localStorage.setItem("favorites", JSON.stringify(update));
+  }
+
+  showFav(item){
     return (
-      <div key={item.key}>
+      <div key={item.take}>
         <li>
-        {/* <a href={item.url} title={item.url}>{item.lineName}</a> */}
-        {item.lineName}
-        <button type="button" onClick={() => this.delete(item.key)}>
+        {/* <a href={item.url} title={item.url}>{item.take}</a> */}
+        {item.category}: {item.take}
+        <button type="button" onClick={() => this.deleteFav(item.take)}>
           Remove
         </button>
         </li>
@@ -92,12 +40,12 @@ class ShowFav extends React.Component{
   }
 
   render(){
-    var favEntries = this.props.entries;
-    var listItems = favEntries.map(this.addFav);
+    var favEntries = this.state.favs;
+    var listItems = favEntries.map(this.showFav);
 
     return(
       <div>
-        <p>Your favorite train line(s): </p>
+        <p>Your favoriteline(s): </p>
         <ul>{listItems}</ul>
       </div>
     );
@@ -108,7 +56,7 @@ const Favorites = (props) => {
     return (
         <div>
             <h2>Favorites</h2>
-            <FlavorForm />
+            <ShowFav />
         </div>
     )}
     
