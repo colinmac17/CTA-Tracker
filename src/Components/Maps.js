@@ -1,4 +1,5 @@
-import * as React from 'react';
+import React from 'react';
+
 
 
 const dataCategories = [
@@ -6,43 +7,42 @@ const dataCategories = [
   { categoryName: "Bus"}
 ];
 const dataLines = [
-  { name: "Red Line", lineId: 1, linename: "redline", categoryName: "Train" },
-  { name: "Blue Line", lineId: 2, linename: "blueline", categoryName: "Train" },
-  { name: "Brown Line", lineId: 3, linename: "brownline", categoryName: "Train" },
-  { name: "Green Line", lineId: 4, linename: "greenline", categoryName: "Train" },
-  { name: "Orange Line", lineId: 5,linename: "orangeline", categoryName: "Train" },
-  { name: "Pink Line", lineId: 6, linename: "pinkline", categoryName: "Train" },
-  { name: "Purple Line", lineId: 7, linename: "purpleline", categoryName: "Train" },
-  { name: "Yellow Line", lineId: 8, linename: "yellowline", categoryName: "Train" },
-  { name: "1", numId: 1, categoryName: "Bus" },
-  { name: "3", numId: 2, categoryName: "Bus" },
-  { name: "4", numId: 3, categoryName: "Bus" },
-  { name: "12", numId: 4, categoryName: "Bus" },
-  { name: "J14", numId: 5, categoryName: "Bus" },
-  { name: "15", numId: 6, categoryName: "Bus" },
-  { name: "22", numId: 7, categoryName: "Bus" },
-  { name: "24", numId: 8, categoryName: "Bus" },
-  { name: "26", numId: 9, categoryName: "Bus" },
-  { name: "36", numId: 10, categoryName: "Bus" },
-  { name: "37", numId: 11, categoryName: "Bus" },
-  { name: "52", numId: 12, categoryName: "Bus" },
-  { name: "65", numId: 13, categoryName: "Bus" },
-  { name: "78", numId: 14, categoryName: "Bus" },
-  { name: "88", numId: 15, categoryName: "Bus" },
-  { name: "90", numId: 16, categoryName: "Bus" },
-  { name: "95", numId: 17, categoryName: "Bus" },
-  { name: "96", numId: 18, categoryName: "Bus" },
-  { name: "100", numId: 19, categoryName: "Bus" },
-  { name: "115", numId: 20, categoryName: "Bus" },
-  { name: "125", numId: 21, categoryName: "Bus" },
-  { name: "126", numId: 22, categoryName: "Bus" },
-  { name: "143", numId: 23, categoryName: "Bus" },
-  { name: "147", numId: 24, categoryName: "Bus" },
-  { name: "151", numId: 25, categoryName: "Bus" },
-  { name: "152", numId: 26, categoryName: "Bus" },
-  { name: "155", numId: 27, categoryName: "Bus" },
+  { name: "Red Line", Id: "redline", categoryName: "Train" },
+  { name: "Blue Line", Id: "blueline", categoryName: "Train" },
+  { name: "Brown Line", Id: "brownline", categoryName: "Train" },
+  { name: "Green Line", Id: "greenline", categoryName: "Train" },
+  { name: "Orange Line", Id: "orangeline", categoryName: "Train" },
+  { name: "Pink Line", Id: "pinkline", categoryName: "Train" },
+  { name: "Purple Line", Id: "purpleline", categoryName: "Train" },
+  { name: "Yellow Line", Id: "yellowline", categoryName: "Train" },
+  { name: "1", Id: "1", categoryName: "Bus" },
+  { name: "3", Id: "3", categoryName: "Bus" },
+  { name: "4", Id: "4", categoryName: "Bus" },
+  { name: "12", Id: "12", categoryName: "Bus" },
+  { name: "J14", Id: "J14", categoryName: "Bus" },
+  { name: "15", Id: "15", categoryName: "Bus" },
+  { name: "22", Id: "22", categoryName: "Bus" },
+  { name: "24", Id: "24", categoryName: "Bus" },
+  { name: "26", Id: "26", categoryName: "Bus" },
+  { name: "36", Id: "36", categoryName: "Bus" },
+  { name: "37", Id: "37", categoryName: "Bus" },
+  { name: "52", Id: "52", categoryName: "Bus" },
+  { name: "65", Id: "65", categoryName: "Bus" },
+  { name: "78", Id: "78", categoryName: "Bus" },
+  { name: "88", Id: "88", categoryName: "Bus" },
+  { name: "90", Id: "90", categoryName: "Bus" },
+  { name: "95", Id: "95", categoryName: "Bus" },
+  { name: "96", Id: "96", categoryName: "Bus" },
+  { name: "100", Id: "100", categoryName: "Bus" },
+  { name: "115", Id: "115", categoryName: "Bus" },
+  { name: "125", Id: "125", categoryName: "Bus" },
+  { name: "126", Id: "126", categoryName: "Bus" },
+  { name: "143", Id: "143", categoryName: "Bus" },
+  { name: "147", Id: "147", categoryName: "Bus" },
+  { name: "151", Id: "151", categoryName: "Bus" },
+  { name: "152", Id: "152", categoryName: "Bus" },
+  { name: "155", Id: "155", categoryName: "Bus" },
 ];
-
 
 
 class MapComponent extends React.Component {
@@ -51,11 +51,20 @@ class MapComponent extends React.Component {
       this.state = {
           category: [],
           take: [],
-          takes: []
+          takes: [],
+          favorites: []
       }
       this.categoryChange = this.categoryChange.bind(this);
       this.takeChange = this.takeChange.bind(this);
   };
+
+  componentDidMount(){
+    const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
+
+    if(getArray !== 0){
+      this.setState({favs: getArray})
+    }
+  }
 
   categoryChange(event){
       const category = event.target.value;
@@ -72,14 +81,34 @@ class MapComponent extends React.Component {
 
   handleClick(event){
     let url = "";
-    if(this.state.category === 'Train'){
-      let lineObj = dataLines.filter(take => take.name === this.state.take).map(({linename}) =>(linename));
-      url = "https://www.transitchicago.com/" + lineObj + "/#map";
+    let lineId = dataLines.filter(take => take.name === this.state.take).map(({Id}) =>(Id));
+    if(this.state.category === 'Train'){     
+      url = "https://www.transitchicago.com/" + lineId + "/#map";
     } 
     else if(this.state.category === 'Bus'){
-      url = "https://www.transitchicago.com/assets/1/6/stoplist_" + this.state.take + ".htm";
+      url = "https://www.transitchicago.com/assets/1/6/stoplist_" + lineId + ".htm";
     }
     window.open(url);
+  }
+
+  handleFav(event){
+    let array = JSON.parse(localStorage.getItem("favorites") || '0');
+    let Obj = {category: this.state.category, take: this.state.take};
+    let dup = false;
+    for(let i = 0; i < array.length; i++){
+      if(array[i].take === Obj.take){
+        dup = true;
+        break;
+      }
+    }
+    if(dup){
+      window.alert("Already added this to fav list. ")
+    }
+    else{
+      array.push(Obj);
+      this.setState({favorites: array})
+      localStorage.setItem("favorites", JSON.stringify(array));
+    }
   }
 
 
@@ -114,6 +143,10 @@ render() {
           <br/><br/>
           <button onClick={this.handleClick.bind(this, this.state.category, this.state.take)} disabled={!hasTake}>
             Show Map
+          </button>
+          <br/><br/>
+          <button onClick={this.handleFav.bind(this, this.state.category, this.state.take)} disabled={!hasTake}>
+            Add to Fav
           </button>
       </div>
   );
