@@ -105,12 +105,14 @@ class MapComponent extends React.Component {
       window.alert("Already added this to fav list. ")
     }
     else{
+      if(!(array instanceof Array)){
+        array = [array]
+      }
       array.push(Obj);
       this.setState({favorites: array})
       localStorage.setItem("favorites", JSON.stringify(array));
     }
   }
-
 
 render() {
   const category = this.state.category;
@@ -123,7 +125,7 @@ render() {
           <div style={{ display: 'inline-block' }}>
               Categories
               <br />
-              <select placeholder="Category" data={dataCategories} value={this.state.category} onChange={this.categoryChange}>
+              <select placeholder="Category" data={dataCategories}  onChange={this.categoryChange}>
                 <option>--Choose Category--</option>
                 {dataCategories.map((e, key) => {
                   return <option key={key}>{e.categoryName}</option>;
@@ -133,7 +135,7 @@ render() {
           <div style={{ display: 'inline-block', marginLeft: '30px' }}>
               Takes
               <br />
-              <select placeholder="Take" disabled={!hasCategory} data={this.state.takes} value={this.state.take} onChange={this.takeChange}>
+              <select placeholder="Take" disabled={!hasCategory} data={this.state.takes}  onChange={this.takeChange}>
                 <option>--Choose Take--</option>
                 {this.state.takes.map((e, key) => {
                   return <option key={key}>{e.name}</option>;
