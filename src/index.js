@@ -3,9 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createMuiTheme} from '@material-ui/core/styles';
+import { ThemeProvider } from "@material-ui/styles";
+
+const theme = createMuiTheme({
+    typography: {
+      fontFamily: [
+        'Montserrat',
+        'Roboto',
+        '"Helvetica Neue"',
+        'Arial',
+        'sans-serif',
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(','),
+    },
+  });
 
 ReactDOM.render(
-    <App />,
+    <ThemeProvider theme={theme}>
+        <App />,
+    </ThemeProvider>,
     document.getElementById('root')
 );
 

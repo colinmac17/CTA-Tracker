@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -57,6 +56,9 @@ const useStyles = makeStyles((theme) => ({
   pushDown: {
       marginTop: '10rem',
   },
+  iconFill: {
+    fill: "#F26B6B",
+  }
 }));
 
 export function Nav(props) {
@@ -69,13 +71,13 @@ export function Nav(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const icons = [<HomeOutlined style={{fill: "#F26B6B"}}/>, 
-                  <DirectionsBus style={{fill: "#F26B6B"}}/>, 
-                  <Train style={{fill: "#F26B6B"}}/>, 
-                  <Map style={{fill: "#F26B6B"}}/>, 
-                  <Star style={{fill: "#F26B6B"}}/>, 
-                  <WbSunny style={{fill: "#F26B6B"}}/>, 
-                  <Info style={{fill: "#F26B6B"}}/>];
+  const icons = [<HomeOutlined className={classes.iconFill} />, 
+                  <DirectionsBus className={classes.iconFill}/>, 
+                  <Train className={classes.iconFill}/>, 
+                  <Map className={classes.iconFill}/>, 
+                  <Star className={classes.iconFill}/>, 
+                  <WbSunny className={classes.iconFill}/>, 
+                  <Info className={classes.iconFill}/>];
 
   const navLinks = ['', 'bus-eta', 'train-eta','maps','favorites','weather','about'];
 
@@ -110,8 +112,8 @@ export function Nav(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h4" noWrap>
-            CTA & Bus Tracker
+          <Typography variant="h6" noWrap>
+            RIDECHICAGO
           </Typography>
         </Toolbar>
       </AppBar>
