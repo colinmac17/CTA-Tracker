@@ -52,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
   links: {
       textDecoration: 'none',
       color: 'black',
+      fontWeight: 'lighter',
   },
   pushDown: {
       marginTop: '10rem',
@@ -112,7 +113,7 @@ export function Nav(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <Typography variant="h5" noWrap>
             RIDECHICAGO
           </Typography>
         </Toolbar>
