@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appBar: {
-    backgroundColor: '#00378f',
+    backgroundColor: '#FFB8B8',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
   pushDown: {
       marginTop: '10rem',
-  }
+  },
 }));
 
 export function Nav(props) {
@@ -69,7 +69,14 @@ export function Nav(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  const icons = [<HomeOutlined />, <DirectionsBus />, <Train/>, <Map/>, <Star/>, <WbSunny/>, <Info/>];
+  const icons = [<HomeOutlined style={{fill: "#F26B6B"}}/>, 
+                  <DirectionsBus style={{fill: "#F26B6B"}}/>, 
+                  <Train style={{fill: "#F26B6B"}}/>, 
+                  <Map style={{fill: "#F26B6B"}}/>, 
+                  <Star style={{fill: "#F26B6B"}}/>, 
+                  <WbSunny style={{fill: "#F26B6B"}}/>, 
+                  <Info style={{fill: "#F26B6B"}}/>];
+
   const navLinks = ['', 'bus-eta', 'train-eta','maps','favorites','weather','about'];
 
   const drawer = (
