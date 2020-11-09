@@ -43,7 +43,7 @@ function App() {
   const classes = useStyles();
   return (
     <Router>
-      <div className={classes.root}>
+      <div className={classes.root} >
         <Grid container spacing={3}>
         <Nav />
           <main className={classes.content}>
