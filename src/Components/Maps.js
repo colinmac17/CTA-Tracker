@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, {Component} from 'react';
 
 
 const dataCategories = [
@@ -52,19 +51,30 @@ class MapComponent extends React.Component {
           category: [],
           take: [],
           takes: [],
-          favorites: []
+          favorites: [],
+
+          default_category: "--Choose Category--",
+          default_take : "--Choose Take--"
+
       }
       this.categoryChange = this.categoryChange.bind(this);
       this.takeChange = this.takeChange.bind(this);
   };
 
-  componentDidMount(){
+  componentDidMount(props){
     const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
 
     if(getArray !== 0){
       this.setState({favs: getArray})
     }
+    //below is for the redirect component
+    const getDirect = JSON.parse(localStorage.getItem("redirect") || '0');
+    if(getDirect !== 0){
+      this.setState({default_category: getDirect[0].category});
+      this.setState({default_take: getDirect[0].take});
+    }
   }
+
 
   categoryChange(event){
       const category = event.target.value;
@@ -120,6 +130,24 @@ render() {
   const hasCategory = category.length !== 0;
   const hasTake = take.length !== 0 && take !== '--Choose Take--';
 
+  const default_category = this.state.default_category;
+  const default_take = this.state.default_take;
+
+  function isDefaultCategory(name){
+    if(name === default_category){
+      return true;
+    }
+    return false;
+}
+
+  function isDefaultTake(name){
+      if(name === default_take){
+        return true;
+      }
+      return false;
+  }
+  
+
   return (
       <div>
           <div style={{ display: 'inline-block' }}>
@@ -150,6 +178,31 @@ render() {
           <button onClick={this.handleFav.bind(this, this.state.category, this.state.take)} disabled={!hasTake}>
             Add to Fav
           </button>
+
+
+          <br/><br/>
+          <p>Test redirect from the Favorite page </p>
+          <div style={{ display: 'inline-block' }}>
+              Categories
+              <br />
+              <select placeholder="Category">
+                <option>--Choose Category--</option>
+                {dataCategories.map((e, key) => {
+                  return <option key={key} selected={isDefaultCategory(e.categoryName)}>{e.categoryName}</option>;
+                })}
+              </select>
+          </div>
+          <div style={{ display: 'inline-block', marginLeft: '30px' }}>
+              Takes
+              <br />
+              <select placeholder="Take" >
+                <option>--Choose Take--</option>
+                {dataLines.map((e, key) => {
+                  return <option key={key} selected={isDefaultTake(e.name)}>{e.name}</option>;
+                })}
+              </select>
+          </div>
+
       </div>
   );
 }
