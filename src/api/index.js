@@ -25,6 +25,8 @@ const myInit = {
 }
 
 const CONFIG = new Request(ARRIVALS_URL, myInit);
+const WEATHER_CONFIG = new Request(WEATHER_URL, myInit);
+
 
 /**
  * Define our API Object
@@ -45,7 +47,7 @@ const API = {
     },
     async getWeatherData(){
         try{
-            const res = await axios.get(WEATHER_URL);
+            const res = await axios.get(WEATHER_URL, WEATHER_CONFIG);
             return await res.data
         }catch(e){
             console.log("Failed to get weather data.")

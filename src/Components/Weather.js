@@ -8,6 +8,7 @@ const Weather = (props) => {
     const [hourly, setHourly] = useState([]);
 
     useEffect(() => {
+        console.log("here");
         API.getWeatherData()
             .then(data => {
                 setWeatherData(data); 
@@ -15,7 +16,7 @@ const Weather = (props) => {
                 setHourly(weatherData.hourly);
             })
             .catch(error => console.error(error)); 
-    },[weatherData]);
+    },[]);
 
     return(
         <div>
