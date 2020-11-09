@@ -43,18 +43,18 @@ class ShowFav extends React.Component{
     return (
       <div key={item.take}>
         <li>
-
+        {item.category}: {item.take}
+        <button type="button" onClick={() => this.deleteFav(item.take)}>
+          Remove
+        </button>
+        
         <button type="button" onClick={() => this.handleRedirect(item)}>
           <Link to={{
               pathname: '/maps',
             }}
             >
-            {item.category}: {item.take}
+            Redirect to another page with this info prefilled
           </Link>
-        </button>
-        {item.category}: {item.take}
-        <button type="button" onClick={() => this.deleteFav(item.take)}>
-          Remove
         </button>
         </li>
       </div>
