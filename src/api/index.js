@@ -17,7 +17,7 @@ const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
  */
 const CORS_EVERYWHERE_URL = "https://cors-anywhere.herokuapp.com/";
 const ARRIVALS_URL = `${CORS_EVERYWHERE_URL}http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=${CTA_API_KEY}`;
-const WEATHER_URL = `${CORS_EVERYWHERE_URL}http://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=${WEATHER_API_KEY}`;
+const WEATHER_URL = `${CORS_EVERYWHERE_URL}https://api.openweathermap.org/data/2.5/onecall?lat=41.878113&lon=-87.629799&exclude=minutely,daily&appid=${WEATHER_API_KEY}&units=imperial`;
 
 const myInit = {
     method: 'HEAD',

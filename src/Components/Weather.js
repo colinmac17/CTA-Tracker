@@ -10,11 +10,16 @@ class Weather extends React.Component{
 
     componentDidMount(){
         API.getWeatherData()
-            .then(data => this.setState({weatherData: data}))
-            .catch(error => console.error(error))
+            .then(data => {
+                this.setState({weatherData: data}); 
+                this.setState({'current': this.state.weatherData.current});
+                this.setState({'hourly': this.state.weatherData.hourly});
+            })
+            .catch(error => console.error(error)); 
     };
 
     render(){
+        console.log(this.state);
 
         return(
             <Container>
