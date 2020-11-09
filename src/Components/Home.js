@@ -4,13 +4,10 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
+
     gridStyle: {
-        marginTop:'2rem',
         fontSize: '1.5rem',
         textAlign: 'center',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: '200px',
-        },
     },
 
     landingHighlight: {
@@ -22,15 +19,13 @@ const useStyles = makeStyles((theme) => ({
     imgStyle: {
         width: '500px',
         height: '250px',
-    }
-
-
+    },
   }));
 
 const Home = (props) => {
     const classes = useStyles();
     return(
-        <Container>
+        <Container className={classes.content}>
             <>
                 <Grid container spacing={2} className={classes.gridStyle} alignItems="center" justify="center">
 

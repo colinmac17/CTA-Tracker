@@ -24,8 +24,13 @@ const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
   toolbar: theme.mixins.toolbar,
   content: {
+    overflowX: 'hidden',
     flexGrow: 1,
     padding: theme.spacing(1),
+    [theme.breakpoints.up('sm')]: {
+      width: `calc(100% - ${180}px)`,
+      marginLeft: '180px',
+    },
   },
 }))
 
