@@ -20,15 +20,19 @@ const useStyles = makeStyles((theme) => ({
         width: '500px',
         height: '250px',
     },
+    pTag:{
+        alignItems: "center",
+        justifyContent: "center",
+    }
   }));
 
 const Home = (props) => {
     const classes = useStyles();
     return(
-        <div className={classes.root}>
-            <Grid container direction="row" spacing={3} align="center" justify="center">
-                <Grid item md={6} sm={12} >
-                    <p>
+        <div className={classes.root} >
+            <Grid container direction="row" spacing={1} style={{ minHeight: '100vh' }}>
+                <Grid item md={6} sm={12}>
+                    <p className={classes.pTag}>
                         <span className={classes.landingHighlight}>RideChicago</span> helps you get estimated time of arrival for Chicago trains and Buses!
                     </p>
                 </Grid>
