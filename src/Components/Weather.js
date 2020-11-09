@@ -15,7 +15,7 @@ const Weather = (props) => {
                 setHourly(weatherData.hourly);
             })
             .catch(error => console.error(error)); 
-    },[]);
+    },[weatherData]);
 
     return(
         <div>
