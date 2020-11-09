@@ -5,7 +5,9 @@ import axios from 'axios';
  * Example:
  * REACT_APP_CTA_API_KEY=2434324fdfdsgdgddsfdsfndjfsd9
  */
-const API_KEY = process.env.REACT_APP_CTA_API_KEY;
+
+const CTA_API_KEY = process.env.REACT_APP_CTA_API_KEY;
+const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
 /**
  * Utilize Cors anywhere to avoid CORS errors - @see https://cors-anywhere.herokuapp.com/
@@ -14,7 +16,8 @@ const API_KEY = process.env.REACT_APP_CTA_API_KEY;
  * We can add the other API Urls here for other endpoints and export them
  */
 const CORS_EVERYWHERE_URL = "https://cors-anywhere.herokuapp.com/";
-const ARRIVALS_URL = `${CORS_EVERYWHERE_URL}http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=${API_KEY}`;
+const ARRIVALS_URL = `${CORS_EVERYWHERE_URL}http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=${CTA_API_KEY}`;
+const WEATHER_URL = `${CORS_EVERYWHERE_URL}http://api.openweathermap.org/data/2.5/forecast?q=Chicago&appid=${WEATHER_API_KEY}`;
 
 const myInit = {
     method: 'HEAD',
@@ -33,8 +36,20 @@ const API = {
      * @param {int} mapId 
      */
     async getTrains(mapId){
-        const res = await axios.get(`${ARRIVALS_URL}&mapid=${mapId}&outputType=JSON`, CONFIG)
-        return await res.data
+        try{
+            const res = await axios.get(`${ARRIVALS_URL}&mapid=${mapId}&outputType=JSON`, CONFIG)
+            return await res.data
+        }catch(e){
+            console.log("Failed to get train data.")
+        }
+    },
+    async getWeatherData(){
+        try{
+            const res = await axios.get(WEATHER_URL);
+            return await res.data
+        }catch(e){
+            console.log("Failed to get weather data.")
+        }
     }
 }
 

@@ -1,27 +1,29 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
+import {API} from "../api/index";
 
-const Weather = (props) => {
-    return(
-        <Container>
-            <div>
-                <h2>Current Weather in Chicago</h2>
-                <img src="" alt="Current Weather Description"/>
+class Weather extends React.Component{
+    state = {
+        weatherData: {},
+    }
 
+
+    componentDidMount(){
+        API.getWeatherData()
+            .then(data => this.setState({weatherData: data}))
+            .catch(error => console.error(error))
+    };
+
+    render(){
+
+        return(
+            <Container>
                 <div>
-                    <h5>Current Temperature: </h5>
-                    <p>33°F</p>
+                    
                 </div>
-
-                <div>
-                    <h5>Feels Like: </h5>
-                    <p>35°F</p>
-                </div>
-
-                <button>F/C</button>
-            </div>
-        </Container>
-    );
+            </Container>
+        );
+    }
 }
 
 export default Weather;
