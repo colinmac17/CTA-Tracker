@@ -1,14 +1,14 @@
 import React from 'react';
 import '../index.css';
 import {API, BUS_URL, CONFIG} from '../api/';
-import busData from '../assets/CTA_Bus_Routes_List.json'
+//import busData from '../assets/CTA_Bus_Routes_List.json'
 
 
 class BusEta extends React.Component {
 
   //busData = require('../assets/CTA_Bus_Routes_List.json')
 
-  var myData = JSON.parse(busData);
+  //var myData = JSON.parse(busData);
   
   constructor(props){
       super(props)
@@ -48,7 +48,7 @@ class BusEta extends React.Component {
 
   render(){
 
-    console.log("This is the bus data " + busData[0].route)
+    //console.log("This is the bus data " + busData[0].route)
 
     return (
     
