@@ -1,10 +1,12 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom'
 
 class ShowFav extends React.Component{
   constructor(props){
     super(props);
-    this.state = {favs:[]};
+    this.state = {
+      favs:[],
+    };
     this.showFav = this.showFav.bind(this);
   }
 
@@ -25,14 +27,34 @@ class ShowFav extends React.Component{
     localStorage.setItem("favorites", JSON.stringify(update));
   }
 
+
+  handleRedirect(item){
+    let array = JSON.parse(localStorage.getItem("redirect") || '0');
+
+    if(!(array instanceof Array)){
+        array = [array]
+      }
+    array.splice(0, 1, item);
+    localStorage.setItem("redirect", JSON.stringify(array));
+
+  }
+
   showFav(item){
     return (
       <div key={item.take}>
         <li>
-        {/* <a href={item.url} title={item.url}>{item.take}</a> */}
         {item.category}: {item.take}
         <button type="button" onClick={() => this.deleteFav(item.take)}>
           Remove
+        </button>
+        
+        <button type="button" onClick={() => this.handleRedirect(item)}>
+          <Link to={{
+              pathname: '/maps',
+            }}
+            >
+            Redirect to another page with this info prefilled
+          </Link>
         </button>
         </li>
       </div>
@@ -51,6 +73,8 @@ class ShowFav extends React.Component{
     );
   }
 }
+
+
 
 const Favorites = (props) => {
     return (
