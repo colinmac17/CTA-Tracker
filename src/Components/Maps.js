@@ -150,6 +150,7 @@ render() {
 
   return (
       <div>
+        <br/><br/>
           <div style={{ display: 'inline-block' }}>
               Categories
               <br />
@@ -181,7 +182,7 @@ render() {
 
 
           <br/><br/>
-          <p>Test prefilling below form with data that redirect from the Favorite page </p>
+          <p>Prefilling below form with data that redirect from the Favorites page </p>
           <div style={{ display: 'inline-block' }}>
               Categories
               <br />
