@@ -75,7 +75,7 @@ const About = (props) => {
                             <Grid item xs={12} sm={6}>
                                 <Grid container spacing={8} className={classes.rowList}>
                                     <Grid item xs={2}>
-                                        <Avatar alt={"CM"}/>
+                                        <Avatar alt={"CM"} src={"https://avatars1.githubusercontent.com/u/19336132?s=460&u=d1faeb250cda90659be3ad4c22a14e0c046598a6&v=4"}/>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <p>Colin McAtee</p>
@@ -86,7 +86,7 @@ const About = (props) => {
                             <Grid item xs={12} sm={6}>
                                 <Grid container spacing={8} className={classes.rowList}>
                                     <Grid item xs={2}>
-                                        <Avatar alt={"HP"}/>
+                                        <Avatar alt={"HP"} src={"https://avatars1.githubusercontent.com/u/9543054?s=460&v=4"}/>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <p>Harsh Puvvada</p>
@@ -97,7 +97,7 @@ const About = (props) => {
                             <Grid item xs={12} sm={6}>
                                 <Grid container spacing={8} className={classes.rowList}>
                                     <Grid item xs={2}>
-                                        <Avatar alt={"PR"}/>
+                                        <Avatar alt={"PR"} src={"https://avatars1.githubusercontent.com/u/9091293?s=460&u=c6990d9ab40cfb4ec6af24e861351e959392f9c8&v=4"}/>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <p>Pedro Rebollar</p>
@@ -108,7 +108,7 @@ const About = (props) => {
                             <Grid item xs={12} sm={6}>
                                 <Grid container spacing={8} className={classes.rowList}>
                                     <Grid item xs={2}>
-                                        <Avatar alt={"YQ"}/>
+                                        <Avatar alt={"YQ"} src={"https://avatars2.githubusercontent.com/u/56770684?s=460&v=4"}/>
                                     </Grid>
                                     <Grid item xs={2}>
                                         <p>Yu Quian</p>
