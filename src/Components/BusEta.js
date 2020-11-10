@@ -1,21 +1,15 @@
 import React from 'react';
 import '../index.css';
 import {API, BUS_URL, CONFIG} from '../api/';
-<<<<<<< HEAD
 //import busData from '../assets/CTA_Bus_Routes_List.json'
-=======
->>>>>>> 2973c92f49646db8518fb9a014b01ef169875bf2
 
 
 class BusEta extends React.Component {
 
-<<<<<<< HEAD
   //busData = require('../assets/CTA_Bus_Routes_List.json')
 
   //var myData = JSON.parse(busData);
   
-=======
->>>>>>> 2973c92f49646db8518fb9a014b01ef169875bf2
   constructor(props){
       super(props)
       this.state = {
