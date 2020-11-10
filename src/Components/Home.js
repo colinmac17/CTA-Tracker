@@ -6,7 +6,6 @@ import trainView from '../assets/illustrations/insideTrain-Illustration.svg';
 import traffic from '../assets/illustrations/traffic-Illustration.svg';
 
 
-
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
