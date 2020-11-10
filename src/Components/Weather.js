@@ -8,21 +8,33 @@ const Weather = (props) => {
     const [hourly, setHourly] = useState([]);
 
     useEffect(() => {
-        console.log("here");
         API.getWeatherData()
             .then(data => {
                 setWeatherData(data); 
-                setCurrent(weatherData.current);
-                setHourly(weatherData.hourly);
+                setCurrent(data.current);
+                setHourly(data.hourly);
             })
             .catch(error => console.error(error)); 
     },[]);
 
+    if(weatherData){
+        return(
+        <div>
+            <p>Data from OpenWeather.org. We still need to present in nicely</p>
+            {weatherData ? <p>Current Weather: {current.temp}°F</p> : <p>Loading weather data</p>}
+            {hourly.length > 1 ? <p>in one hour {hourly[1].temp}°F</p> : <p>Loading weather data</p>}
+            {hourly.length > 1 ? <p>in two hours {hourly[2].temp}°F</p> : <p>Loading weather data</p>}
+            {hourly.length > 1 ? <p>in three hours {hourly[3].temp}°F</p> : <p>Loading weather data</p>}
+        </div>
+        )
+    }
+
     return(
         <div>
-
+            <p>Weather data did not load</p>
         </div>
-    );
+    )
+        
 }
 
 export default Weather;
