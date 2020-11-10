@@ -44,7 +44,7 @@ const About = (props) => {
                         <h2 className={classes.title}>Tech Used</h2>
                         <Grid container spacing={4} className={classes.rowList}>
                             <Grid item xs={6} sm={6} md={2}>
-                                <img height={75} width={75} src={"https://assets.stickpng.com/thumbs/5847f5bdcef1014c0b5e489c.png"}  alt={"HTML"}/>
+                                <img height={75} width={75} src={"https://www.freeiconspng.com/uploads/w3c-html5-logo-0.png"}  alt={"HTML"}/>
                                 <p className={classes.ml2}>HTML</p>
                             </Grid>
                             <Grid item xs={6} sm={6} md={2}>
