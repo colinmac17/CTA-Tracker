@@ -63,14 +63,7 @@ const API = {
             console.log("Failed to get weather data.")
         }
     },
-    async getTrainData(routeId, stopId){
-        try{
-            const res = await axios.get(`${BUS_URL}&rt=${routeId}&stpid=${stopId}&format=json`, BUS_CONFIG);
-            return await res.data
-        }catch(e){
-            console.log("Failed to get weather data.")
-        }
-    }
+    
 }
 
 export {API, CONFIG, ARRIVALS_URL};
