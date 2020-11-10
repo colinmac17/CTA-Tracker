@@ -1,10 +1,59 @@
 import React from 'react';
+import '../index.css';
+import {API, BUS_URL, CONFIG} from '../api/';
+//import busData from '../assets/CTA_Bus_Routes_List.json'
 
-export default function BusEta() {
+
+class BusEta extends React.Component {
+
+  //busData = require('../assets/CTA_Bus_Routes_List.json')
+
+  //var myData = JSON.parse(busData);
+  
+  constructor(props){
+      super(props)
+      this.state = {
+          data: [],
+      }
+  }
+
+  componentDidMount(){
+      this.getBus();
+  }
+
+  async getBus(){
+      /**
+       * Example of how we can get data from the api into our component state
+       * I have hardcoded in a map id here for an exmaple.
+       * */
+      //var tempInt = parseInt(this.state.train)
+      //console.log("This is the int version " + tempInt)
+      const data = await API.getTrainData(20, 456);
+      this.setState({
+          data: data,
+          
+      })
+      console.log(this.state.data)
+      //console.log("Trying to get the eta " + this.state.data[0].arrT)
+      //this.state.nextTrain = this.state.data[0].arrT
+      //this.state.destination = this.state.data[0].destNm
+
+  }
+
+  onFormSubmit = (e) => {
+      e.preventDefault()
+      console.log(this.state.data)
+      this.getBus()
+  }
+
+  render(){
+
+    //console.log("This is the bus data " + busData[0].route)
+
     return (
     
           <div>
-          <form>
+          <form onSubmit={this.onFormSubmit}>
             <label>
               <h2>Bus Route Information:</h2>
               <select>
@@ -22,11 +71,10 @@ export default function BusEta() {
 
           <hr/>
 
-        <h3> Currently Viewing: </h3>
-
+          <h3> Currently Viewing: </h3>
           </div>
-    
-    
-    
         )
 }
+}
+
+export default BusEta

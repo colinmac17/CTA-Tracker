@@ -77,12 +77,19 @@ class TrainETA extends React.Component {
         const data = await API.getTrains(tempInt);
         this.setState({
             data: data.ctatt.eta,
-            
+            //nextTrain: data[0].arrT,
+            //destination:  data[0].destNm
+  
+        })
+        this.setState({
+            nextTrain: this.state.data[0].arrT,
+            destination:  this.state.data[0].destNm
+  
         })
         console.log(this.state.data)
         //console.log("Trying to get the eta " + this.state.data[0].arrT)
-        this.state.nextTrain = this.state.data[0].arrT
-        this.state.destination = this.state.data[0].destNm
+        //this.state.nextTrain = this.state.data[0].arrT
+        //this.state.destination = this.state.data[0].destNm
 
     }
 
