@@ -27,10 +27,7 @@ const myInit = {
 }
 
 const CONFIG = new Request(ARRIVALS_URL, myInit);
-<<<<<<< HEAD
 const WEATHER_CONFIG = new Request(WEATHER_URL, myInit);
-=======
->>>>>>> 2973c92f49646db8518fb9a014b01ef169875bf2
 const BUS_CONFIG= new Request(BUS_URL, myInit);
 
 /**

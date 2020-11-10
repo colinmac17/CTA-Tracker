@@ -53,11 +53,8 @@ class BusEta extends React.Component {
   }
 
   render(){
-<<<<<<< HEAD
 
     //console.log("This is the bus data " + busData[0].route)
-=======
->>>>>>> 2973c92f49646db8518fb9a014b01ef169875bf2
 
     return (
     
