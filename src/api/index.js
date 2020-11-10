@@ -27,7 +27,10 @@ const myInit = {
 }
 
 const CONFIG = new Request(ARRIVALS_URL, myInit);
+<<<<<<< HEAD
 const WEATHER_CONFIG = new Request(WEATHER_URL, myInit);
+=======
+>>>>>>> 2973c92f49646db8518fb9a014b01ef169875bf2
 const BUS_CONFIG= new Request(BUS_URL, myInit);
 
 /**
@@ -50,6 +53,14 @@ const API = {
     async getWeatherData(){
         try{
             const res = await axios.get(WEATHER_URL, WEATHER_CONFIG);
+            return await res.data
+        }catch(e){
+            console.log("Failed to get weather data.")
+        }
+    },
+    async getTrainData(routeId, stopId){
+        try{
+            const res = await axios.get(`${BUS_URL}&rt=${routeId}&stpid=${stopId}&format=json`, BUS_CONFIG);
             return await res.data
         }catch(e){
             console.log("Failed to get weather data.")
