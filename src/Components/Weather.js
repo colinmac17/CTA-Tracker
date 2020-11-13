@@ -1,7 +1,22 @@
 import React, {useState, useEffect} from 'react';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
 import {API} from "../api/index";
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        flexGrow: 1,
+        fontSize: '1.5rem',
+        fontWeight:'200',
+        marginTop:'2.5rem',
+    },
+  }));
+
+
 const Weather = (props) => {
+
+
+    const classes = useStyles();
 
     const [weatherData, setWeatherData] = useState({});
     const [current, setCurrent] = useState({});
