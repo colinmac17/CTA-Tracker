@@ -70,8 +70,6 @@ class BusEta extends React.Component {
     console.log("selected route: " + e.target.value);
   }
 
-  
-
   render(){
 
     //console.log("This is the bus data " + busData[0].route)
@@ -89,26 +87,31 @@ class BusEta extends React.Component {
             </select>
         </div>
      */}
+
           <div>
           <form onSubmit={this.onFormSubmit}>
             <label>
               <h2>Bus Route Information:</h2>
-              <select>
-                <option value="0">-- Select a Bus Route --</option>
-                <option value="358">1 Bronzeville/Union Station</option>
-                <option value="159">2 Hyde Park Express</option>
-                <option value="160">3 King Drive</option>
-                <option value="162">4 Cottage Grove - OWL</option>
-                <option value="164">N5 South Shore Night Bus - OWL</option>
-                <option value="165">6 Jackson Park Express</option>
+
+              <div id="route-input">
+              <select value={this.state.selectedRoute} onChange={this.onChange} onChange={e=>this.setState({selectedRoute: e.target.value})}>
+                {this.state.routedata.map((item, index) => <option value={item.rt}>{item.rt}. {item.rtnm} </option> )}
               </select>
+              </div>
+
+
+
             </label>
+
+
             <button type="submit">Submit</button>
           </form>
 
           <hr/>
 
-          <h3> Currently Viewing: </h3>
+          <h3> Currently Viewing: {this.state.selectedRoute} </h3>
+          {/*  <h3> Destination: {this.state.destination} </h3>
+          <h3> At Stop: {this.state.selectedRoute} </h3> */}
           </div>
           </div>
         )
