@@ -1,53 +1,8 @@
 import React from 'react';
 import '../index.css';
-// import Button from '@material-ui/core/Button';
-import {API, ARRIVALS_URL, CONFIG} from '../api/'
+import {API, ARRIVALS_URL, CONFIG} from '../api/';
+import trainLookup from '../assets/data/trainStops.json'
 
-const lookup = {
-    "Red": [
-      { id: '41220', text: 'Fullerton' },
-      { id: '41320', text: 'Belmont' },
-      { id: '41420', text: 'Addison' },
-      { id: '41090', text: 'Monroe' },
-      { id: '40560', text: 'Jackson' },
-      { id: '40540', text: 'Wilson' }
-    ],
-    "Brown": [
-      { id: '41500', text: 'Montrose' },
-      { id: '40530', text: 'Diversey' },
-      { id: '41210', text: 'Wellington' },
-      { id: '40660', text: 'Armitage' },
-      { id: '40460', text: 'Merchandise Mart' },
-      { id: '41480', text: 'Western' },
-    ],
-
-    "Blue":[
-        { id: '40670', text: 'Western - Ohare br.' },
-        { id: '40220', text: 'Western - Forest Park' },
-
-    ],
-    "Green":[
-        {id: '40280', text: 'Central'}
-
-    ],
-    "Yellow":[
-        {id: '40140', text: 'Dempster-Skokie'}
-
-    ],
-    "Purple":[
-        { id: '41210', text: 'Wellington' },
-
-        { id: '40730', text: 'Washington/Wells' }
-    ],
-    "Orange":[
-        { id: '40310', text: 'Western' },
-    ],
-    "Pink":[
-        { id: '40740', text: 'Western' },
-
-    ],
-
-  }
 class TrainETA extends React.Component {
 
     constructor(props){
@@ -59,7 +14,8 @@ class TrainETA extends React.Component {
             mapId: 40360,
             trainColor: "Red",
             nextTrain: "",
-            destination: ""
+            destination: "",
+            trainStop: ""
         }
     }
 
@@ -68,25 +24,24 @@ class TrainETA extends React.Component {
     }
 
     async getTrains(){
-        /**
-         * Example of how we can get data from the api into our component state
-         * I have hardcoded in a map id here for an exmaple.
-         * */
+
         var tempInt = parseInt(this.state.train)
-        console.log("This is the int version " + tempInt)
-        const data = await API.getTrains(tempInt);
+        var route = this.state.trainColor
+
+        const response = await API.getTrains(tempInt, route);
         this.setState({
-            data: data.ctatt.eta,
-            //nextTrain: data[0].arrT,
-            //destination:  data[0].destNm
+            data: response.ctatt.eta,
+            nextTrain: response.ctatt.eta[0].arrT,
+            destination:  response.ctatt.eta[0].destNm,
+            trainStop: response.ctatt.eta[0].staNm
   
         })
-        this.setState({
+        /* this.setState({
             nextTrain: this.state.data[0].arrT,
             destination:  this.state.data[0].destNm
   
-        })
-        console.log(this.state.data)
+        }) */
+        console.log("API call made for this stop: " + response.ctatt.eta[0].staNm)
         //console.log("Trying to get the eta " + this.state.data[0].arrT)
         //this.state.nextTrain = this.state.data[0].arrT
         //this.state.destination = this.state.data[0].destNm
@@ -102,7 +57,7 @@ class TrainETA extends React.Component {
     render(){
 
         const {trainColor} = this.state
-        const options = lookup[trainColor]
+        const options = trainLookup[trainColor]
 
         return (
             <div>
@@ -111,14 +66,13 @@ class TrainETA extends React.Component {
                     <h2>Train Route Information:</h2>
                     </label>
                     <select value={this.state.trainColor}  onChange={this.onChange} onChange={e=>this.setState({trainColor: e.target.value})}>
-                        <option value="0">-- Select a Train Route --</option>
                         <option value="Red">Red Line</option>
                         <option value="Blue">Blue</option>
-                        <option value="Green">Green</option>
-                        <option value="Yellow">Yellow</option>
-                        <option value="Brown">Brown</option>
-                        <option value="Purple">Purple</option>
-                        <option value="Orange">Orange</option>
+                        <option value="G">Green</option>
+                        <option value="Y">Yellow</option>
+                        <option value="Brn">Brown</option>
+                        <option value="P">Purple</option>
+                        <option value="Org">Orange</option>
                         <option value="Pink">Pink</option>
                     </select>
                         
@@ -132,7 +86,7 @@ class TrainETA extends React.Component {
 
             <h3> Currently Viewing: {this.state.trainColor}</h3>
             <p>Current mapId Selection: {this.state.train}</p>
-            <p>The next {this.state.trainColor} line train towards {this.state.destination} arrives at: {this.state.nextTrain}</p>
+            <p>The next {this.state.trainColor} line train at {this.state.trainStop} towards {this.state.destination} arrives at: {this.state.nextTrain}</p>
             
             </div>
         );

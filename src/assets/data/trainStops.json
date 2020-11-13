@@ -1,0 +1,68 @@
+{
+    "Red": [
+      { "id": "41220", "text": "Fullerton"},
+      { "id": "41320", "text": "Belmont" },
+      { "id": "41420", "text": "Addison" },
+      { "id": "41090", "text": "Monroe" },
+      { "id": "40560", "text": "Jackson" },
+      { "id": "40540", "text": "Wilson" },
+      { "id": "40340", "text": "Berwyn"},
+      { "id": "41230", "text": "47th" },
+      { "id": "40910", "text": "63rd" },
+      { "id": "40990", "text": "69th" },
+      { "id": "40240", "text": "79th" },
+      { "id": "40430", "text": "87th" },
+      { "id": "40450", "text": "95th/Dan Ryan" },
+      { "id": "41200", "text": "Argyle" }
+    ],
+    "Brn": [
+      { "id": "41500", "text": "Montrose" },
+      { "id": "40530", "text": "Diversey" },
+      { "id": "41210", "text": "Wellington" },
+      { "id": "40660", "text": "Armitage" },
+      { "id": "40460", "text": "Merchandise Mart" },
+      { "id": "41480", "text": "Western" },
+      { "id": "40680", "text": "Adams/Wabash" },
+      { "id": "41440", "text": "Addison" }
+    ],
+
+    "Blue":[
+        { "id": "40670", "text": "Western - Ohare br." },
+        { "id": "40220", "text": "Western - Forest Park" },
+        { "id": "40680", "text": "Addison" }
+
+    ],
+    "G":[
+        { "id": "40280", "text": "Central"},
+        { "id": "41120", "text": "35th-Bronzeville-IIT" },
+        { "id": "41270", "text": "43rd" },
+        { "id": "41080", "text": "47th" },
+        { "id": "40130", "text": "51st" },
+        { "id": "40680", "text": "Adams/Wabash" }
+
+    ],
+    "Y":[
+        { "id": "40140", "text": "Dempster-Skokie"},
+        { "id": "41680", "text": "Oakton-Skokie" }
+
+    ],
+    "P":[
+
+        { "id": "40730", "text": "Washington/Wells" },
+        { "id": "40580", "text": "54th/Cermak" },
+        { "id": "40680", "text": "Adams/Wabash" },
+        { "id": "40660", "text": "Armitage" }
+    ],
+    "Org":[
+        { "id": "40310", "text": "Western" },
+        { "id": "40120", "text": "35th/Archer" },
+        { "id": "40680", "text": "Adams/Wabash" }
+    ],
+    "Pink":[
+        { "id": "40740", "text": "Western" },
+        { "id": "40830", "text": "18th" },
+        { "id": "40680", "text": "Adams/Wabash" }
+
+    ]
+
+  }

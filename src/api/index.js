@@ -39,9 +39,9 @@ const API = {
      * Gets Train Etas based on a mapId
      * @param {int} mapId 
      */
-    async getTrains(mapId){
+    async getTrains(mapId, route){
         try{
-            const res = await axios.get(`${ARRIVALS_URL}&mapid=${mapId}&outputType=JSON`, CONFIG)
+            const res = await axios.get(`${ARRIVALS_URL}&mapid=${mapId}&rt=${route}&outputType=JSON`, CONFIG)
             return await res.data
         }catch(e){
             console.log("Failed to get train data.")
