@@ -29,7 +29,7 @@ const Weather = (props) => {
     const dataLoaded = (
         <div>
             <h1>Weather data for Chicago</h1>
-            <WeatherCard icon={current.weather[0].icon} description={current.weather[0].description} 
+            {/* <WeatherCard icon={current.weather[0].icon} description={current.weather[0].description} 
                     temp = {current.temp} feelsLike = {current.feels_like} time={"Current"} />
 
             <WeatherCard icon={hourly[0].weather[0].icon} description={hourly[0].weather[0].description} 
@@ -39,13 +39,13 @@ const Weather = (props) => {
                         temp = {current.weather[1].temp} feelsLike = {current.weather[1].feels_like} time={"In Two Hours"} />
             
             <WeatherCard icon={current.weather[2].icon} description={current.weather[2].description} 
-                        temp = {current.weather[2].temp} feelsLike = {current.weather[2].feels_like} time={"In Two Hours"} />
+                        temp = {current.weather[2].temp} feelsLike = {current.weather[2].feels_like} time={"In Two Hours"} /> */}
         </div> 
     )
 
     return(
         <>
-            {weatherData ? dataLoaded : dataNotLoaded}
+            {/* {weatherData ? dataLoaded : dataNotLoaded} */}
         </>
     )   
 }
