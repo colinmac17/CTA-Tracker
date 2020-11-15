@@ -42,6 +42,7 @@ class TrainETA extends React.Component {
   
         }) */
         console.log("API call made for this stop: " + response.ctatt.eta[0].staNm)
+        console.log(this.state.data)
         //console.log("Trying to get the eta " + this.state.data[0].arrT)
         //this.state.nextTrain = this.state.data[0].arrT
         //this.state.destination = this.state.data[0].destNm
@@ -50,7 +51,7 @@ class TrainETA extends React.Component {
 
     onFormSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state.train)
+        //console.log(this.state.train)
         this.getTrains()
     }
 

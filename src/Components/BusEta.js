@@ -19,7 +19,9 @@ class BusEta extends React.Component {
           selectedRoute: "",
           selectedDirection: "",
           busStopName: "",
-          busStopId: ""
+          busStopId: "",
+          arrivalTime: "",
+          message: "",
       }
   }
 
@@ -35,6 +37,7 @@ class BusEta extends React.Component {
     console.log("fetching routes");
     this.setState({
       routedata: res["bustime-response"]["routes"],
+      //selectedRoute: res["bustime-response"]["routes"][0]["rt"]
     })
   }
 
@@ -68,9 +71,18 @@ class BusEta extends React.Component {
     console.log("The stopID is " + this.state.busStopId)
 
     const data = await API.getBusData(tempInt, stopId, direction);
-    this.setState({
+    if (data["bustime-response"]["prd"])
+      this.setState({
+          data: data,
+          destination: data["bustime-response"]["prd"][0]["des"],
+          arrivalTime: data["bustime-response"]["prd"][0]["prdctdn"]
+      })
+    else 
+      this.setState({
         data: data,
-    })
+        message: data["bustime-response"]["msg"]
+
+      })
     console.log(this.state.data)
   }
 
@@ -78,6 +90,9 @@ class BusEta extends React.Component {
     this.state.selectedRoute = e.target.value;
     this.state.directionData = [];
     this.state.busStopData = [];
+    this.state.selectedDirection = "";
+    this.state.destination = "";
+    this.state.arrivalTime = "";
     this.getBusDirections();
   }
 
@@ -131,6 +146,7 @@ class BusEta extends React.Component {
           <hr/>
           <h3> Currently Viewing: {this.state.selectedRoute} </h3>
           <h3> Direction: {this.state.selectedDirection} </h3>
+          <h3> The next {this.state.selectedDirection} {this.state.selectedRoute} bus towards {this.state.destination} arrives in {this.state.arrivalTime} min </h3>
         </div>
       </div>
     )
