@@ -63,9 +63,9 @@ const API = {
             console.log("Failed to get weather data.")
         }
     },
-    async getBusData(routeId, stopId){
+    async getBusData(routeId, stopId, direction){
         try{
-            const res = await axios.get(`${BUS_URL}&rt=${routeId}&stpid=${stopId}&format=json`, BUS_CONFIG);
+            const res = await axios.get(`${BUS_URL}&rt=${routeId}&stpid=${stopId}&dir=${direction}&format=json`, BUS_CONFIG);
             return await res.data
         }catch(e){
             console.log("Failed to get Bus data.")
@@ -91,7 +91,7 @@ const API = {
 
     async getBusStops(route, direction){
         try{
-            const res = await axios.get(`${BUS_DIRECTION_URL}&rt=${route}&dir=${direction}&format=json`, BUS_STOPS_CONFIG);
+            const res = await axios.get(`${BUS_STOPS_URL}&rt=${route}&dir=${direction}&format=json`, BUS_STOPS_CONFIG);
             return await res.data
         }catch(e){
             console.log("Failed to get Bus Stop Data")
