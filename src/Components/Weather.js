@@ -1,53 +1,52 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {API} from "../api/index";
 import WeatherCard from "./WeatherCard";
 
-const Weather = (props) => {
 
-    const [weatherData, setWeatherData] = useState({});
-    const [current, setCurrent] = useState({});
-    const [hourly, setHourly] = useState([]);
 
-    useEffect(() => {
+class Weather extends React.Component{
+
+    state = {
+        weatherData: {},
+        current: {},
+        hourly: [],
+    }
+
+    componentDidMount(){
         API.getWeatherData()
-            .then(data => {
-                setWeatherData(data); 
-                setCurrent(data.current);
-                setHourly(data.hourly);
-                console.log(data);
-            })
+            .then(data => this.setState({
+                weatherData: data,
+                current: data.current,
+                hourly: data.hourly,
+            }))
             .catch(error => console.error(error)); 
-    },[]);
+    }
 
-    const dataNotLoaded = (
-        <div>
-            <p>Loading Data</p>
-            <img src="#" alt="Weather Loading"/>
-        </div>
-    )
+    render(){
 
-    const dataLoaded = (
-        <div>
-            <h1>Weather data for Chicago</h1>
-            {/* <WeatherCard icon={current.weather[0].icon} description={current.weather[0].description} 
-                    temp = {current.temp} feelsLike = {current.feels_like} time={"Current"} />
+        const weatherDataNotLoaded = (
+            <div>       
+                <p>Weather data not loaded. Please refresh page.</p>
+            </div>
+        );
 
-            <WeatherCard icon={hourly[0].weather[0].icon} description={hourly[0].weather[0].description} 
-                        temp = {hourly[0].temp} feelsLike = {hourly[0].feels_like} time={"In One Hour"} />
+        const weatherDataLoaded = (
+            <div>
+                <WeatherCard data={this.state.current} time={"Currently"} />
+                <WeatherCard data={this.state.hourly[0]} time={"In One Hour"} />
+                <WeatherCard data={this.state.hourly[1]} time={"In Two Hours"} />
+                <WeatherCard data={this.state.hourly[2]} time={"In Three Hours"} />
 
-            <WeatherCard icon={current.weather[1].icon} description={current.weather[1].description} 
-                        temp = {current.weather[1].temp} feelsLike = {current.weather[1].feels_like} time={"In Two Hours"} />
-            
-            <WeatherCard icon={current.weather[2].icon} description={current.weather[2].description} 
-                        temp = {current.weather[2].temp} feelsLike = {current.weather[2].feels_like} time={"In Two Hours"} /> */}
-        </div> 
-    )
+            </div>
+        );
 
-    return(
-        <>
-            {/* {weatherData ? dataLoaded : dataNotLoaded} */}
-        </>
-    )   
+        return(
+            <div>
+                <h1>Current Weather In Chicago</h1>
+                {this.state.hourly.length > 0 ? weatherDataLoaded : weatherDataNotLoaded}
+            </div>
+        );
+    }
 }
 
 export default Weather;
