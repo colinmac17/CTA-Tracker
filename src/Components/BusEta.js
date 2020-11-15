@@ -127,18 +127,34 @@ class BusEta extends React.Component {
                   {this.state.routedata.map((item, index) => <option value={item.rt}>{item.rt}. {item.rtnm} </option> )}
                 </select>
               </div>
-            
-              <div id="direction-input">
-                <select value={this.state.selectedDirection} onChange={this.handleDirectionSelect} style={{width: 300}}>
-                 {this.state.directionData.map((item, index) => <option value={item.dir}>{item.dir} </option> )}
-                </select>
-              </div> 
+              
+              {this.state.directionData.length > 0 ?
+                <div id="direction-input">
+                  <select value={this.state.selectedDirection} onChange={this.handleDirectionSelect} style={{width: 300}}>
+                  {this.state.directionData.map((item, index) => <option value={item.dir}>{item.dir} </option> )}
+                  </select>
+                </div> 
+                : 
+                <div id="direction-input">
+                  <select style={{width: 300}}>
+                  {<option >Please sleect route</option> }
+                  </select>
+                </div>
+              }
 
-              <div id="stop-input">
-                <select value={this.state.busStopId} onChange={this.handleStopSelect} style={{width: 300}}>
-                  {this.state.busStopData.map((item, index) => <option value={item.stpid}>{item.stpnm} </option>)}
-                </select>
-              </div> 
+              {this.state.busStopData.length > 0 ?
+                <div id="stop-input">
+                  <select value={this.state.busStopId} onChange={this.handleStopSelect} style={{width: 300}}>
+                    {this.state.busStopData.map((item, index) => <option value={item.stpid}>{item.stpnm} </option>)}
+                  </select>
+                </div> 
+                :
+                <div id="stop-input">
+                  <select style={{width: 300}}>
+                  {<option >Please sleect direction</option> }
+                  </select>
+                </div>
+              }
 
             </label>
             {/* <button type="submit">Submit</button> */}
