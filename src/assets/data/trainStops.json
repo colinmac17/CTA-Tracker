@@ -1,68 +1,622 @@
 {
     "Red": [
-      { "id": "41220", "text": "Fullerton"},
-      { "id": "41320", "text": "Belmont" },
+      { "id": "40900", "text": "Howard"},
+      { "id": "41190", "text": "Jarvis" },
+      { "id": "40100", "text": "Morse" },
+      { "id": "41300", "text": "Loyola" },
+      { "id": "40760", "text": "Granville" },
+      { "id": "40880", "text": "Thorndale"},
+      { "id": "41380", "text": "Bryn Mawr" },
+      { "id": "40340", "text": "Berwyn"},
+      { "id": "41200", "text": "Argyle" },
+      { "id": "40770", "text": "Lawrence" },
+      { "id": "40540", "text": "Wilson" },
+      { "id": "40080", "text": "Sheridan" },
       { "id": "41420", "text": "Addison" },
+      { "id": "41320", "text": "Belmont" },
+      { "id": "41220", "text": "Fullerton"},
+      { "id": "40650", "text": "North/Clybourn" },
+      { "id": "40630", "text": "Clark/Division" },
+      { "id": "41450", "text": "Chicago" },
+      { "id": "40330", "text": "Grand" },
+      { "id": "41660", "text": "Lake"},
       { "id": "41090", "text": "Monroe" },
       { "id": "40560", "text": "Jackson" },
-      { "id": "40540", "text": "Wilson" },
-      { "id": "40340", "text": "Berwyn"},
+      { "id": "41490", "text": "Harrison" },
+      { "id": "41400", "text": "Roosevelt" },
+      { "id": "41000", "text": "Cermak-Chinatown"},
+      { "id": "40190", "text": "Sox-35th" }, 
       { "id": "41230", "text": "47th" },
+      { "id": "41170", "text": "Garfield" },
       { "id": "40910", "text": "63rd" },
       { "id": "40990", "text": "69th" },
       { "id": "40240", "text": "79th" },
       { "id": "40430", "text": "87th" },
-      { "id": "40450", "text": "95th/Dan Ryan" },
-      { "id": "41200", "text": "Argyle" }
+      { "id": "40450", "text": "95th/Dan Ryan" }    
     ],
+
     "Brn": [
-      { "id": "41500", "text": "Montrose" },
-      { "id": "40530", "text": "Diversey" },
-      { "id": "41210", "text": "Wellington" },
-      { "id": "40660", "text": "Armitage" },
-      { "id": "40460", "text": "Merchandise Mart" },
-      { "id": "41480", "text": "Western" },
-      { "id": "40680", "text": "Adams/Wabash" },
-      { "id": "41440", "text": "Addison" }
+    {
+        "id": "40680",
+        "text": "Adams/Wabash"
+    },
+    {
+        "id": "41440",
+        "text": "Addison"
+    },
+    {
+        "id": "40660",
+        "text": "Armitage"
+    },
+    {
+        "id": "41320",
+        "text": "Belmont"
+    },
+    {
+        "id": "40380",
+        "text": "Clark/Lake"
+    },
+    {
+        "id": "40090",
+        "text": "Damen"
+    },
+    {
+        "id": "40530",
+        "text": "Diversey"
+    },
+    {
+        "id": "40870",
+        "text": "Francisco"
+    },
+    {
+        "id": "41220",
+        "text": "Fullerton"
+    },
+    {
+        "id": "41460",
+        "text": "Irving Park"
+    },
+    {
+        "id": "41180",
+        "text": "Kedzie"
+    },
+    {
+        "id": "41290",
+        "text": "Kimball"
+    },
+    {
+        "id": "40160",
+        "text": "LaSalle/Van Buren"
+    },
+    {
+        "id": "40460",
+        "text": "Merchandise Mart"
+    },
+    {
+        "id": "41500",
+        "text": "Montrose"
+    },
+    {
+        "id": "41310",
+        "text": "Paulina"
+    },
+    {
+        "id": "40040",
+        "text": "Quincy/Wells"
+    },
+    {
+        "id": "41010",
+        "text": "Rockwell"
+    },
+    {
+        "id": "40800",
+        "text": "Sedgwick"
+    },
+    {
+        "id": "40360",
+        "text": "Southport"
+    },
+    {
+        "id": "40260",
+        "text": "State/Lake"
+    },
+    {
+        "id": "40730",
+        "text": "Washington/Wells"
+    },
+    {
+        "id": "41210",
+        "text": "Wellington"
+    },
+    {
+        "id": "41480",
+        "text": "Western"
+    },
+    {
+        "id": "40710",
+        "text": "Chicago"
+    },
+    {
+        "id": "40850",
+        "text": "Harold Washington Library-State/Van Buren"
+    },
+    {
+        "id": "41700",
+        "text": "Washington/Wabash"
+    }
     ],
 
     "Blue":[
-        { "id": "40670", "text": "Western - Ohare br." },
-        { "id": "40220", "text": "Western - Forest Park" },
-        { "id": "40680", "text": "Addison" }
-
+        {
+            "id": "40010",
+            "text": "Austin"
+        },
+        {
+            "id": "40060",
+            "text": "Belmont"
+        },
+        {
+            "id": "40970",
+            "text": "Cicero"
+        },
+        {
+            "id": "40380",
+            "text": "Clark/Lake"
+        },
+        {
+            "id": "40430",
+            "text": "Clinton"
+        },
+        {
+            "id": "40230",
+            "text": "Cumberland"
+        },
+        {
+            "id": "40590",
+            "text": "Damen"
+        },
+        {
+            "id": "40320",
+            "text": "Division"
+        },
+        {
+            "id": "40390",
+            "text": "Forest Park"
+        },
+        {
+            "id": "40490",
+            "text": "Grand"
+        },
+        {
+            "id": "40750",
+            "text": "Harlem"
+        },
+        {
+            "id": "40320",
+            "text": "Division"
+        },
+        {
+            "id": "40980",
+            "text": "Harlem"
+        },
+        {
+            "id": "40810",
+            "text": "Illinois Medical District"
+        },
+        {
+            "id": "40550",
+            "text": "Irving Park"
+        },
+        {
+            "id": "40070",
+            "text": "Jackson"
+        },
+        {
+            "id": "41280",
+            "text": "Jefferson Park"
+        },
+        {
+            "id": "40250",
+            "text": "Kedzie-Homan"
+        },
+        {
+            "id": "41340",
+            "text": "LaSalle"
+        },
+        {
+            "id": "41020",
+            "text": "Logan Square"
+        },
+        {
+            "id": "41330",
+            "text": "Montrose"
+        },
+        {
+            "id": "40790",
+            "text": "Monroe"
+        },
+        {
+            "id": "40180",
+            "text": "Oak Park"
+        },
+        {
+            "id": "40920",
+            "text": "Pulaski"
+        },
+        {
+            "id": "40470",
+            "text": "Racine"
+        },
+        {
+            "id": "40890",
+            "text": "O'Hare"
+        },
+        {
+            "id": "40820",
+            "text": "Rosemont"
+        },
+        {
+            "id": "40350",
+            "text": "UIC-Halsted"
+        },
+        {
+            "id": "40370",
+            "text": "Washington"
+        },
+        {
+            "id": "40570",
+            "text": "California"
+        },
+        {
+            "id": "41410",
+            "text": "Chicago"
+        },
+        {
+            "id": "40980",
+            "text": "Harlem"
+        },
+        {
+            "id": "40670",
+            "text": "Western"
+        },
+        {
+            "id": "41240",
+            "text": "Addison"
+        }
     ],
     "G":[
-        { "id": "40280", "text": "Central"},
-        { "id": "41120", "text": "35th-Bronzeville-IIT" },
-        { "id": "41270", "text": "43rd" },
-        { "id": "41080", "text": "47th" },
-        { "id": "40130", "text": "51st" },
-        { "id": "40680", "text": "Adams/Wabash" }
-
+        {
+            "id": "41120",
+            "text": "35th-Bronzeville-IIT"
+        },
+        {
+            "id": "41270",
+            "text": "43rd"
+        },
+        {
+            "id": "40130",
+            "text": "51st"
+        },
+        {
+            "id": "40680",
+            "text": "Adams/Wabash"
+        },
+        {
+            "id": "40290",
+            "text": "Ashland/63rd"
+        },
+        {
+            "id": "41260",
+            "text": "Austin"
+        },
+        {
+            "id": "41360",
+            "text": "California"
+        },
+        {
+            "id": "40280",
+            "text": "Central"
+        },
+        {
+            "id": "40480",
+            "text": "Cicero"
+        },
+        {
+            "id": "40380",
+            "text": "Clark/Lake"
+        },
+        {
+            "id": "41160",
+            "text": "Clinton"
+        },
+        {
+            "id": "41670",
+            "text": "Conservatory"
+        },
+        {
+            "id": "40720",
+            "text": "Cottage Grove"
+        },
+        {
+            "id": "40510",
+            "text": "Garfield"
+        },
+        {
+            "id": "40940",
+            "text": "Halsted"
+        },
+        {
+            "id": "40020",
+            "text": "Harlem/Lake"
+        },
+        {
+            "id": "40300",
+            "text": "Indiana"
+        },
+        {
+            "id": "41070",
+            "text": "Kedzie"
+        },
+        {
+            "id": "41140",
+            "text": "King Drive"
+        },
+        {
+            "id": "40700",
+            "text": "Laramie"
+        },
+        {
+            "id": "41510",
+            "text": "Morgan"
+        },
+        {
+            "id": "41350",
+            "text": "Oak Park"
+        },
+        {
+            "id": "40030",
+            "text": "Pulaski"
+        },
+        {
+            "id": "40610",
+            "text": "Ridgeland"
+        },
+        {
+            "id": "41400",
+            "text": "Roosevelt"
+        },
+        {
+            "id": "40260",
+            "text": "State/Lake"
+        },
+        {
+            "id": "41400",
+            "text": "Roosevelt"
+        },
+        {
+            "id": "40720",
+            "text": "Cottage Grove"
+        },
+        {
+            "id": "41080",
+            "text": "47th"
+        },
+        {
+            "id": "41690",
+            "text": "Cermak-McCormick Place"
+        },
+        {
+            "id": "41700",
+            "text": "Washington/Wabash"
+        },
+        {
+            "id": "40170",
+            "text": "Ashland"
+        }
     ],
     "Y":[
         { "id": "40140", "text": "Dempster-Skokie"},
-        { "id": "41680", "text": "Oakton-Skokie" }
+        { "id": "41680", "text": "Oakton-Skokie" },
+        { "id": "40900", "text": "Howard"}
 
     ],
     "P":[
-
-        { "id": "40730", "text": "Washington/Wells" },
-        { "id": "40580", "text": "54th/Cermak" },
-        { "id": "40680", "text": "Adams/Wabash" },
-        { "id": "40660", "text": "Armitage" }
+        {
+            "id": "41250",
+            "text": "Central"
+        },
+        {
+            "id": "40050",
+            "text": "Davis"
+        },
+        {
+            "id": "40690",
+            "text": "Dempster"
+        },
+        {
+            "id": "40520",
+            "text": "Foster"
+        },
+        {
+            "id": "40900",
+            "text": "Howard"
+        },
+        {
+            "id": "41050",
+            "text": "Linden"
+        },
+        {
+            "id": "40270",
+            "text": "Main"
+        },
+        {
+            "id": "40400",
+            "text": "Noyes"
+        },
+        {
+            "id": "40840",
+            "text": "South Boulevard"
+        }
     ],
     "Org":[
-        { "id": "40310", "text": "Western" },
-        { "id": "40120", "text": "35th/Archer" },
-        { "id": "40680", "text": "Adams/Wabash" }
+        {
+            "id": "40120",
+            "text": "35th/Archer"
+        },
+        {
+            "id": "40680",
+            "text": "Adams/Wabash"
+        },
+        {
+            "id": "41060",
+            "text": "Ashland"
+        },
+        {
+            "id": "40380",
+            "text": "Clark/Lake"
+        },
+        {
+            "id": "41130",
+            "text": "Halsted"
+        },
+        {
+            "id": "40850",
+            "text": "Harold Washington Library-State/Van Buren"
+        },
+        {
+            "id": "41150",
+            "text": "Kedzie"
+        },
+        {
+            "id": "40160",
+            "text": "LaSalle/Van Buren"
+        },
+        {
+            "id": "40930",
+            "text": "Midway"
+        },
+        {
+            "id": "40960",
+            "text": "Pulaski"
+        },
+        {
+            "id": "40040",
+            "text": "Quincy/Wells"
+        },
+        {
+            "id": "41400",
+            "text": "Roosevelt"
+        },
+        {
+            "id": "40260",
+            "text": "State/Lake"
+        },
+        {
+            "id": "40730",
+            "text": "Washington/Wells"
+        },
+        {
+            "id": "40310",
+            "text": "Western"
+        },
+        {
+            "id": "41400",
+            "text": "Roosevelt"
+        },
+        {
+            "id": "41700",
+            "text": "Washington/Wabash"
+        }
     ],
     "Pink":[
-        { "id": "40740", "text": "Western" },
-        { "id": "40830", "text": "18th" },
-        { "id": "40680", "text": "Adams/Wabash" }
-
+        {
+            "id": "40830",
+            "text": "18th"
+        },
+        {
+            "id": "40580",
+            "text": "54th/Cermak"
+        },
+        {
+            "id": "40680",
+            "text": "Adams/Wabash"
+        },
+        {
+            "id": "40440",
+            "text": "California"
+        },
+        {
+            "id": "40780",
+            "text": "Central Park"
+        },
+        {
+            "id": "40420",
+            "text": "Cicero"
+        },
+        {
+            "id": "40380",
+            "text": "Clark/Lake"
+        },
+        {
+            "id": "41160",
+            "text": "Clinton"
+        },
+        {
+            "id": "40210",
+            "text": "Damen"
+        },
+        {
+            "id": "40850",
+            "text": "Harold Washington Library-State/Van Buren"
+        },
+        {
+            "id": "41040",
+            "text": "Kedzie"
+        },
+        {
+            "id": "40600",
+            "text": "Kostner"
+        },
+        {
+            "id": "40160",
+            "text": "LaSalle/Van Buren"
+        },
+        {
+            "id": "41510",
+            "text": "Morgan"
+        },
+        {
+            "id": "41030",
+            "text": "Polk"
+        },
+        {
+            "id": "40150",
+            "text": "Pulaski"
+        },
+        {
+            "id": "40040",
+            "text": "Quincy/Wells"
+        },
+        {
+            "id": "40260",
+            "text": "State/Lake"
+        },
+        {
+            "id": "40730",
+            "text": "Washington/Wells"
+        },
+        {
+            "id": "40740",
+            "text": "Western"
+        },
+        {
+            "id": "41700",
+            "text": "Washington/Wabash"
+        },
+        {
+            "id": "40170",
+            "text": "Ashland"
+        }
     ]
 
   }

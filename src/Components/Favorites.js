@@ -20,7 +20,7 @@ class ShowFav extends React.Component{
 
   deleteFav(key){
     const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
-    const update = getArray.filter(e => e.take !== key);//remove the element
+    const update = getArray.filter(e => e.train !== key);//remove the element
     this.setState(
       {favs: update}
     )
@@ -36,21 +36,20 @@ class ShowFav extends React.Component{
       }
     array.splice(0, 1, item);
     localStorage.setItem("redirect", JSON.stringify(array));
-
   }
 
   showFav(item){
     return (
-      <div key={item.take}>
+      <div key={item.train}>
         <li>
-        {item.category}: {item.take}
-        <button type="button" onClick={() => this.deleteFav(item.take)}>
+        {item.trainColor}: {item.train}
+        <button type="button" onClick={() => this.deleteFav(item.train)}>
           Remove
         </button>
         
         <button type="button" onClick={() => this.handleRedirect(item)}>
           <Link to={{
-              pathname: '/maps',
+              pathname: '/train-eta',
             }}
             >
             Redirect to another page with this info prefilled
