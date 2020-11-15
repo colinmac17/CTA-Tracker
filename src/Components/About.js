@@ -111,7 +111,7 @@ const About = (props) => {
                                         <Avatar alt={"YQ"} src={"https://avatars2.githubusercontent.com/u/56770684?s=460&v=4"}/>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <p>Yu Quian</p>
+                                        <p>Yu Qian</p>
                                         <a href={"https://github.com/rayqian"} target={"_blank"}>Github</a>
                                     </Grid>
                                 </Grid>

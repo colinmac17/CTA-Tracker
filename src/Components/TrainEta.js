@@ -15,12 +15,19 @@ class TrainETA extends React.Component {
             trainColor: "Red",
             nextTrain: "",
             destination: "",
-            trainStop: ""
+            trainStop: "",
+
         }
     }
 
     componentDidMount(){
         this.getTrains();
+        //below is for the prefill component
+        const getDirect = JSON.parse(localStorage.getItem("redirect") || '0');
+        if(getDirect !== 0){
+        this.setState({trainColor: getDirect[0].trainColor});
+        this.setState({train: getDirect[0].train});
+    }
     }
 
     async getTrains(){
@@ -34,7 +41,6 @@ class TrainETA extends React.Component {
             nextTrain: response.ctatt.eta[0].arrT,
             destination:  response.ctatt.eta[0].destNm,
             trainStop: response.ctatt.eta[0].staNm
-  
         })
         /* this.setState({
             nextTrain: this.state.data[0].arrT,
@@ -54,10 +60,34 @@ class TrainETA extends React.Component {
         this.getTrains()
     }
 
+    handleFav(event){
+        let array = JSON.parse(localStorage.getItem("favorites") || '0');
+        let Obj = {trainColor: this.state.trainColor, train: this.state.train};
+        let dup = false;
+        for(let i = 0; i < array.length; i++){
+          if(array[i].train === Obj.train){
+            dup = true;
+            break;
+          }
+        }
+        if(dup){
+          window.alert("Already added this train to the fav list. ")
+        }
+        else{
+          if(!(array instanceof Array)){
+            array = [array]
+          }
+          array.push(Obj);
+        //   this.setState({favorites: array})
+          localStorage.setItem("favorites", JSON.stringify(array));
+        }
+      }
+
     render(){
 
         const {trainColor} = this.state
         const options = trainLookup[trainColor]
+
 
         return (
             <div>
@@ -81,13 +111,17 @@ class TrainETA extends React.Component {
                     </select>
                     <br></br>
                     <button type="submit" >Submit</button>
+                    <br/><br/>
                 </form>
+                <button onClick={this.handleFav.bind(this, this.state.trainColor, this.state.train)}>
+                        Add to Favorite
+                </button>
             <hr/>
 
             <h3> Currently Viewing: {this.state.trainColor}</h3>
             <p>Current mapId Selection: {this.state.train}</p>
             <p>The next {this.state.trainColor} line train at {this.state.trainStop} towards {this.state.destination} arrives at: {this.state.nextTrain}</p>
-            
+            {/* <p>The data field is {this.state.data.eta[0].staId}</p> */}
             </div>
         );
     }
