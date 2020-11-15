@@ -89,7 +89,7 @@ const About = (props) => {
                                         <Avatar alt={"HP"} src={"https://avatars1.githubusercontent.com/u/9543054?s=460&v=4"}/>
                                     </Grid>
                                     <Grid item xs={2}>
-                                        <p>Harsh Puvvada</p>
+                                        <p>Harsha Puvvada</p>
                                         <a href={"https://github.com/puvvadaharsha"} target={"_blank"}>Github</a>
                                     </Grid>
                                 </Grid>
