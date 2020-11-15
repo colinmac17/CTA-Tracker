@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {API} from "../api/index";
+import WeatherCard from "./WeatherCard";
 
 const Weather = (props) => {
 
@@ -13,28 +14,40 @@ const Weather = (props) => {
                 setWeatherData(data); 
                 setCurrent(data.current);
                 setHourly(data.hourly);
+                console.log(data);
             })
             .catch(error => console.error(error)); 
     },[]);
 
-    if(weatherData){
-        return(
+    const dataNotLoaded = (
         <div>
-            <p>Data from OpenWeather.org. We still need to present in nicely</p>
-            {weatherData ? <p>Current Weather: {current.temp}°F</p> : <p>Loading weather data</p>}
-            {hourly.length > 1 ? <p>in one hour {hourly[1].temp}°F</p> : <p>Loading weather data</p>}
-            {hourly.length > 1 ? <p>in two hours {hourly[2].temp}°F</p> : <p>Loading weather data</p>}
-            {hourly.length > 1 ? <p>in three hours {hourly[3].temp}°F</p> : <p>Loading weather data</p>}
-        </div>
-        )
-    }
-
-    return(
-        <div>
-            <p>Weather data did not load</p>
+            <p>Loading Data</p>
+            <img src="#" alt="Weather Loading"/>
         </div>
     )
-        
+
+    const dataLoaded = (
+        <div>
+            <h1>Weather data for Chicago</h1>
+            {/* <WeatherCard icon={current.weather[0].icon} description={current.weather[0].description} 
+                    temp = {current.temp} feelsLike = {current.feels_like} time={"Current"} />
+
+            <WeatherCard icon={hourly[0].weather[0].icon} description={hourly[0].weather[0].description} 
+                        temp = {hourly[0].temp} feelsLike = {hourly[0].feels_like} time={"In One Hour"} />
+
+            <WeatherCard icon={current.weather[1].icon} description={current.weather[1].description} 
+                        temp = {current.weather[1].temp} feelsLike = {current.weather[1].feels_like} time={"In Two Hours"} />
+            
+            <WeatherCard icon={current.weather[2].icon} description={current.weather[2].description} 
+                        temp = {current.weather[2].temp} feelsLike = {current.weather[2].feels_like} time={"In Two Hours"} /> */}
+        </div> 
+    )
+
+    return(
+        <>
+            {/* {weatherData ? dataLoaded : dataNotLoaded} */}
+        </>
+    )   
 }
 
 export default Weather;
