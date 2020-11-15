@@ -79,7 +79,6 @@ class TrainETA extends React.Component {
             array = [array]
           }
           array.push(Obj);
-        //   this.setState({favorites: array})
           localStorage.setItem("favorites", JSON.stringify(array));
         }
       }
@@ -122,7 +121,6 @@ class TrainETA extends React.Component {
             <h3> Currently Viewing: {this.state.trainColor}</h3>
             <p>Current mapId Selection: {this.state.train}</p>
             <p>The next {this.state.trainColor} line train at {this.state.trainStop} towards {this.state.destination} arrives at: {this.state.nextTrain}</p>
-            {/* <p>The data field is {this.state.data.eta[0].staId}</p> */}
             </div>
         );
     }
