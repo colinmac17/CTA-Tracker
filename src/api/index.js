@@ -20,6 +20,11 @@ const CORS_EVERYWHERE_URL = "https://cors-anywhere.herokuapp.com/";
 const ARRIVALS_URL = `${CORS_EVERYWHERE_URL}http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=${CTA_API_KEY}`;
 const WEATHER_URL = `${CORS_EVERYWHERE_URL}https://api.openweathermap.org/data/2.5/onecall?lat=41.878113&lon=-87.629799&exclude=minutely,daily&appid=${WEATHER_API_KEY}&units=imperial`;
 const BUS_URL = `${CORS_EVERYWHERE_URL}http://www.ctabustracker.com/bustime/api/v2/getpredictions?key=${CTA_BUS_API_KEY}`;
+const BUS_ROUTE_URL = `${CORS_EVERYWHERE_URL}http://ctabustracker.com/bustime/api/v2/getroutes?key=${CTA_BUS_API_KEY}`;
+const BUS_DIRECTION_URL = `${CORS_EVERYWHERE_URL}http://ctabustracker.com/bustime/api/v2/getdirections?key=${CTA_BUS_API_KEY}`;
+const BUS_STOPS_URL = `${CORS_EVERYWHERE_URL}http://ctabustracker.com/bustime/api/v2/getstops?key=${CTA_BUS_API_KEY}`;
+
+
 
 const myInit = {
     method: 'HEAD',
@@ -29,6 +34,9 @@ const myInit = {
 const CONFIG = new Request(ARRIVALS_URL, myInit);
 const WEATHER_CONFIG = new Request(WEATHER_URL, myInit);
 const BUS_CONFIG= new Request(BUS_URL, myInit);
+const BUS_ROUTE_CONFIG = new Request(BUS_ROUTE_URL, myInit);
+const BUS_DIRECTION_CONFIG = new Request(BUS_DIRECTION_URL, myInit);
+const BUS_STOPS_CONFIG = new Request(BUS_STOPS_URL, myInit);
 
 /**
  * Define our API Object
@@ -55,14 +63,40 @@ const API = {
             console.log("Failed to get weather data.")
         }
     },
-    async getTrainData(routeId, stopId){
+    async getBusData(routeId, stopId, direction){
         try{
-            const res = await axios.get(`${BUS_URL}&rt=${routeId}&stpid=${stopId}&format=json`, BUS_CONFIG);
+            const res = await axios.get(`${BUS_URL}&rt=${routeId}&stpid=${stopId}&dir=${direction}&format=json`, BUS_CONFIG);
             return await res.data
         }catch(e){
-            console.log("Failed to get weather data.")
+            console.log("Failed to get Bus data.")
         }
     },
+    async getBusRoute(){
+        try{
+            const res = await axios.get(`${BUS_ROUTE_URL}&format=json`, BUS_ROUTE_CONFIG);
+            return await res.data
+        }catch(e){
+            console.log("Failed to get Bus Route Data")
+        }
+    },
+
+    async getBusDirections(route){
+        try{
+            const res = await axios.get(`${BUS_DIRECTION_URL}&rt=${route}&format=json`, BUS_DIRECTION_CONFIG);
+            return await res.data
+        }catch(e){
+            console.log("Failed to get Bus Direction Data")
+        }
+    },
+
+    async getBusStops(route, direction){
+        try{
+            const res = await axios.get(`${BUS_STOPS_URL}&rt=${route}&dir=${direction}&format=json`, BUS_STOPS_CONFIG);
+            return await res.data
+        }catch(e){
+            console.log("Failed to get Bus Stop Data")
+        }
+    }
     
 }
 

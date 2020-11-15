@@ -1,0 +1,510 @@
+[
+ {
+   "ROUTE": "29",
+   "NAME": "STATE"
+ },
+ {
+   "ROUTE": "5",
+   "NAME": "SOUTH SHORE NIGHT BUS"
+ },
+ {
+   "ROUTE": "53A",
+   "NAME": "SOUTH PULASKI"
+ },
+ {
+   "ROUTE": "146",
+   "NAME": "INNER DRIVE/MICHIGAN EXPRESS"
+ },
+ {
+   "ROUTE": "8",
+   "NAME": "HALSTED"
+ },
+ {
+   "ROUTE": "J14",
+   "NAME": "JEFFERY JUMP"
+ },
+ {
+   "ROUTE": "10",
+   "NAME": "MUSEUM OF SCIENCE & INDUSTRY"
+ },
+ {
+   "ROUTE": "119",
+   "NAME": "MICHIGAN/119TH"
+ },
+ {
+   "ROUTE": "143",
+   "NAME": "STOCKTON/MICHIGAN EXPRESS"
+ },
+ {
+   "ROUTE": "73",
+   "NAME": "ARMITAGE"
+ },
+ {
+   "ROUTE": "82",
+   "NAME": "KIMBALL/HOMAN"
+ },
+ {
+   "ROUTE": "60",
+   "NAME": "BLUE ISLAND/26TH"
+ },
+ {
+   "ROUTE": "X9",
+   "NAME": "ASHLAND EXPRESS"
+ },
+ {
+   "ROUTE": "54B",
+   "NAME": "SOUTH CICERO"
+ },
+ {
+   "ROUTE": "136",
+   "NAME": "SHERIDAN/LASALLE EXPRESS"
+ },
+ {
+   "ROUTE": "62",
+   "NAME": "ARCHER"
+ },
+ {
+   "ROUTE": "X98",
+   "NAME": "AVON EXPRESS"
+ },
+ {
+   "ROUTE": "151",
+   "NAME": "SHERIDAN"
+ },
+ {
+   "ROUTE": "125",
+   "NAME": "WATER TOWER EXPRESS"
+ },
+ {
+   "ROUTE": "31",
+   "NAME": "31ST"
+ },
+ {
+   "ROUTE": "76",
+   "NAME": "DIVERSEY"
+ },
+ {
+   "ROUTE": "112",
+   "NAME": "VINCENNES/111TH"
+ },
+ {
+   "ROUTE": "X49",
+   "NAME": "WESTERN EXPRESS"
+ },
+ {
+   "ROUTE": "59",
+   "NAME": "59TH/61ST"
+ },
+ {
+   "ROUTE": "135",
+   "NAME": "CLARENDON/LASALLE EXPRESS"
+ },
+ {
+   "ROUTE": "84",
+   "NAME": "PETERSON"
+ },
+ {
+   "ROUTE": "201",
+   "NAME": "CENTRAL/RIDGE"
+ },
+ {
+   "ROUTE": "90",
+   "NAME": "HARLEM"
+ },
+ {
+   "ROUTE": "11",
+   "NAME": "LINCOLN"
+ },
+ {
+   "ROUTE": "71",
+   "NAME": "71ST/SOUTH SHORE"
+ },
+ {
+   "ROUTE": "91",
+   "NAME": "AUSTIN"
+ },
+ {
+   "ROUTE": "52A",
+   "NAME": "SOUTH KEDZIE"
+ },
+ {
+   "ROUTE": "169",
+   "NAME": "69TH/UPS EXPRESS"
+ },
+ {
+   "ROUTE": "108",
+   "NAME": "HALSTED/95TH"
+ },
+ {
+   "ROUTE": "36",
+   "NAME": "BROADWAY"
+ },
+ {
+   "ROUTE": "54A",
+   "NAME": "NORTH CICERO/SKOKIE BLVD"
+ },
+ {
+   "ROUTE": "49B",
+   "NAME": "NORTH WESTERN"
+ },
+ {
+   "ROUTE": "30",
+   "NAME": "SOUTH CHICAGO"
+ },
+ {
+   "ROUTE": "130",
+   "NAME": "MUSEUM CAMPUS"
+ },
+ {
+   "ROUTE": "3",
+   "NAME": "KING DRIVE"
+ },
+ {
+   "ROUTE": "8A",
+   "NAME": "SOUTH HALSTED"
+ },
+ {
+   "ROUTE": "192",
+   "NAME": "U OF CHICAGO HOSPITALS EXPRESS"
+ },
+ {
+   "ROUTE": "115",
+   "NAME": "PULLMAN/115TH"
+ },
+ {
+   "ROUTE": "155",
+   "NAME": "DEVON"
+ },
+ {
+   "ROUTE": "111",
+   "NAME": "111TH/KING DRIVE"
+ },
+ {
+   "ROUTE": "156",
+   "NAME": "LASALLE"
+ },
+ {
+   "ROUTE": "152",
+   "NAME": "ADDISON"
+ },
+ {
+   "ROUTE": "124",
+   "NAME": "NAVY PIER"
+ },
+ {
+   "ROUTE": "74",
+   "NAME": "FULLERTON"
+ },
+ {
+   "ROUTE": "94",
+   "NAME": "SOUTH CALIFORNIA"
+ },
+ {
+   "ROUTE": "7",
+   "NAME": "HARRISON"
+ },
+ {
+   "ROUTE": "77",
+   "NAME": "BELMONT"
+ },
+ {
+   "ROUTE": "48",
+   "NAME": "SOUTH DAMEN"
+ },
+ {
+   "ROUTE": "55N",
+   "NAME": "55TH/NARRAGANSETT"
+ },
+ {
+   "ROUTE": "79",
+   "NAME": "79TH"
+ },
+ {
+   "ROUTE": "126",
+   "NAME": "JACKSON"
+ },
+ {
+   "ROUTE": "75",
+   "NAME": "74TH/75TH"
+ },
+ {
+   "ROUTE": "19",
+   "NAME": "UNITED CENTER EXPRESS"
+ },
+ {
+   "ROUTE": "93",
+   "NAME": "CALIFORNIA/DODGE"
+ },
+ {
+   "ROUTE": "49",
+   "NAME": "WESTERN"
+ },
+ {
+   "ROUTE": "52",
+   "NAME": "KEDZIE/CALIFORNIA"
+ },
+ {
+   "ROUTE": "92",
+   "NAME": "FOSTER"
+ },
+ {
+   "ROUTE": "87",
+   "NAME": "87TH STREET"
+ },
+ {
+   "ROUTE": "26",
+   "NAME": "SOUTH SHORE EXPRESS"
+ },
+ {
+   "ROUTE": "37",
+   "NAME": "SEDGWICK"
+ },
+ {
+   "ROUTE": "21",
+   "NAME": "CERMAK"
+ },
+ {
+   "ROUTE": "55A",
+   "NAME": "55TH/AUSTIN"
+ },
+ {
+   "ROUTE": "148",
+   "NAME": "CLARENDON/MICHIGAN EXPRESS"
+ },
+ {
+   "ROUTE": "80",
+   "NAME": "IRVING PARK"
+ },
+ {
+   "ROUTE": "96",
+   "NAME": "LUNT"
+ },
+ {
+   "ROUTE": "9",
+   "NAME": "ASHLAND"
+ },
+ {
+   "ROUTE": "157",
+   "NAME": "STREETERVILLE/TAYLOR"
+ },
+ {
+   "ROUTE": "86",
+   "NAME": "NARRAGANSETT/RIDGELAND"
+ },
+ {
+   "ROUTE": "15",
+   "NAME": "JEFFERY LOCAL"
+ },
+ {
+   "ROUTE": "43",
+   "NAME": "43RD"
+ },
+ {
+   "ROUTE": "18",
+   "NAME": "16TH/18TH"
+ },
+ {
+   "ROUTE": "165",
+   "NAME": "WEST 65TH"
+ },
+ {
+   "ROUTE": "57",
+   "NAME": "LARAMIE"
+ },
+ {
+   "ROUTE": "39",
+   "NAME": "PERSHING"
+ },
+ {
+   "ROUTE": "95",
+   "NAME": "95TH"
+ },
+ {
+   "ROUTE": "24",
+   "NAME": "WENTWORTH"
+ },
+ {
+   "ROUTE": "54",
+   "NAME": "CICERO"
+ },
+ {
+   "ROUTE": "44",
+   "NAME": "WALLACE/RACINE"
+ },
+ {
+   "ROUTE": "206",
+   "NAME": "EVANSTON CIRCULATOR"
+ },
+ {
+   "ROUTE": "2",
+   "NAME": "HYDE PARK EXPRESS"
+ },
+ {
+   "ROUTE": "53",
+   "NAME": "PULASKI"
+ },
+ {
+   "ROUTE": "172",
+   "NAME": "U OF C - KENWOOD"
+ },
+ {
+   "ROUTE": "56",
+   "NAME": "MILWAUKEE"
+ },
+ {
+   "ROUTE": "51",
+   "NAME": "51ST"
+ },
+ {
+   "ROUTE": "120",
+   "NAME": "OGILVIE/STREETERVILLE EXPRESS"
+ },
+ {
+   "ROUTE": "100",
+   "NAME": "JEFFERY MANOR EXPRESS"
+ },
+ {
+   "ROUTE": "28",
+   "NAME": "STONY ISLAND"
+ },
+ {
+   "ROUTE": "103",
+   "NAME": "WEST 103RD"
+ },
+ {
+   "ROUTE": "22",
+   "NAME": "CLARK"
+ },
+ {
+   "ROUTE": "6",
+   "NAME": "JACKSON PARK EXPRESS"
+ },
+ {
+   "ROUTE": "85A",
+   "NAME": "NORTH CENTRAL"
+ },
+ {
+   "ROUTE": "62H",
+   "NAME": "ARCHER/HARLEM"
+ },
+ {
+   "ROUTE": "81",
+   "NAME": "LAWRENCE"
+ },
+ {
+   "ROUTE": "88",
+   "NAME": "HIGGINS"
+ },
+ {
+   "ROUTE": "97",
+   "NAME": "SKOKIE"
+ },
+ {
+   "ROUTE": "70",
+   "NAME": "DIVISION"
+ },
+ {
+   "ROUTE": "12",
+   "NAME": "ROOSEVELT"
+ },
+ {
+   "ROUTE": "66",
+   "NAME": "CHICAGO"
+ },
+ {
+   "ROUTE": "63",
+   "NAME": "63RD"
+ },
+ {
+   "ROUTE": "78",
+   "NAME": "MONTROSE"
+ },
+ {
+   "ROUTE": "81W",
+   "NAME": "WEST LAWRENCE"
+ },
+ {
+   "ROUTE": "72",
+   "NAME": "NORTH"
+ },
+ {
+   "ROUTE": "111A",
+   "NAME": "PULLMAN SHUTTLE"
+ },
+ {
+   "ROUTE": "63W",
+   "NAME": "WEST 63RD"
+ },
+ {
+   "ROUTE": "85",
+   "NAME": "CENTRAL"
+ },
+ {
+   "ROUTE": "55",
+   "NAME": "GARFIELD"
+ },
+ {
+   "ROUTE": "1",
+   "NAME": "BRONZEVILLE/UNION STATION"
+ },
+ {
+   "ROUTE": "171",
+   "NAME": "U OF C - HYDE PARK"
+ },
+ {
+   "ROUTE": "147",
+   "NAME": "OUTER DRIVE EXPRESS"
+ },
+ {
+   "ROUTE": "50",
+   "NAME": "DAMEN"
+ },
+ {
+   "ROUTE": "128",
+   "NAME": "SOLDIER FIELD EXPRESS"
+ },
+ {
+   "ROUTE": "67",
+   "NAME": "67TH/69TH/71ST"
+ },
+ {
+   "ROUTE": "34",
+   "NAME": "SOUTH MICHIGAN"
+ },
+ {
+   "ROUTE": "121",
+   "NAME": "UNION/STREETERVILLE EXPRESS"
+ },
+ {
+   "ROUTE": "106",
+   "NAME": "EAST 103RD"
+ },
+ {
+   "ROUTE": "4",
+   "NAME": "COTTAGE GROVE"
+ },
+ {
+   "ROUTE": "20",
+   "NAME": "MADISON"
+ },
+ {
+   "ROUTE": "65",
+   "NAME": "GRAND"
+ },
+ {
+   "ROUTE": "47",
+   "NAME": "47TH"
+ },
+ {
+   "ROUTE": "68",
+   "NAME": "NORTHWEST HIGHWAY"
+ },
+ {
+   "ROUTE": "35",
+   "NAME": "35TH"
+ },
+ {
+   "ROUTE": "134",
+   "NAME": "STOCKTON/LASALLE EXPRESS"
+ }
+]
