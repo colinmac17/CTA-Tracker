@@ -80,7 +80,7 @@ class BusEta extends React.Component {
     else 
       this.setState({
         data: data,
-        message: data["bustime-response"]["msg"]
+        message: data["bustime-response"]["error"][0]["msg"]
 
       })
     console.log(this.state.data)
@@ -93,6 +93,7 @@ class BusEta extends React.Component {
     this.state.selectedDirection = "";
     this.state.destination = "";
     this.state.arrivalTime = "";
+    this.state.message = "";
     this.getBusDirections();
   }
 
@@ -140,14 +141,24 @@ class BusEta extends React.Component {
               </div> 
 
             </label>
-            <button type="submit">Submit</button>
+            {/* <button type="submit">Submit</button> */}
           </form>
 
           <hr/>
-          <h3> Currently Viewing: {this.state.selectedRoute} </h3>
-          <h3> Direction: {this.state.selectedDirection} </h3>
-          <h3> The next {this.state.selectedDirection} {this.state.selectedRoute} bus towards {this.state.destination} arrives in {this.state.arrivalTime} min </h3>
+
+          <div id="predictions">
+            { this.state.arrivalTime ?
+              <h3> The next {this.state.selectedDirection} {this.state.selectedRoute} bus towards {this.state.destination} arrives in {this.state.arrivalTime} min </h3>
+            : this.state.message ?
+              <h3> {this.state.selectedDirection} {this.state.selectedRoute}:  {this.state.message}</h3>
+            :<h3>No Information Available</h3>
+            }
+          </div>
+        
+        
         </div>
+
+
       </div>
     )
 }
