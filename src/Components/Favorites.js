@@ -52,21 +52,23 @@ class ShowFav extends React.Component{
     localStorage.setItem("redirect_train", JSON.stringify(array));
   }
 
-  handleBusRedirect(item){
-    let array = JSON.parse(localStorage.getItem("redirect_bus") || '0');
+  handleBusRedirect(key){
+    let url = "";
+    const getArray = JSON.parse(localStorage.getItem("favorites_bus") || '0');
+    const lineId = getArray.filter(e => e.selectedRoute === key.selectedRoute && e.selectedDirection === key.selectedDirection && e.busStopId === key.busStopId).map(({selectedRoute}) =>(selectedRoute));
 
-    if(!(array instanceof Array)){
-        array = [array]
-      }
-    array.splice(0, 1, item);
-    localStorage.setItem("redirect_bus", JSON.stringify(array));
+    url = "https://www.transitchicago.com/bus/" + lineId + "/";
+    
+    window.open(url);  
   }
+  
 
   showTrainFav(item){
     return (
       <div key={item.train}>
         <li>
-        {item.trainColor}: {item.train}
+        {/* {item.trainColor}: {item.train} {item.trainStop} */}
+        {item.trainColor}: {item.train} 
         <button type="button" onClick={() => this.deleteTrainFav(item.train)}>
           Remove
         </button>
@@ -94,12 +96,7 @@ class ShowFav extends React.Component{
         </button>
         
         <button type="button" onClick={() => this.handleBusRedirect(item)}>
-          <Link to={{
-              pathname: '/bus-eta',
-            }}
-            >
-            Redirect to BUS page with this info prefilled
-          </Link>
+            Show bus CTA page
         </button>
         </li>
       </div>

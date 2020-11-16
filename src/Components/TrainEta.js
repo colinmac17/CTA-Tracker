@@ -23,10 +23,11 @@ class TrainETA extends React.Component {
     componentDidMount(){
         this.getTrains();
         //below is for the prefill component
-        const getDirect = JSON.parse(localStorage.getItem("redirect_train") || '0');
-        if(getDirect !== 0){
-        this.setState({trainColor: getDirect[0].trainColor});
-        this.setState({train: getDirect[0].train});
+        const getRedirect = JSON.parse(localStorage.getItem("redirect_train") || '0');
+        if(getRedirect !== 0){
+        this.setState({trainColor: getRedirect[0].trainColor});
+        this.setState({train: getRedirect[0].train});
+        // this.setState({trainStop: getRedirect[0].trainStop})
     }
     }
 
@@ -63,10 +64,10 @@ class TrainETA extends React.Component {
 
     handleFav(event){
         let array = JSON.parse(localStorage.getItem("favorites_train") || '0');
-        let Obj = {trainColor: this.state.trainColor, train: this.state.train};
+        let Obj = {trainColor: this.state.trainColor, train: this.state.train, trainStop: this.state.trainStop};
         let dup = false;
         for(let i = 0; i < array.length; i++){
-          if(array[i].train === Obj.train){
+          if(array[i].train === Obj.train && array[i].trainColor === Obj.trainColor){
             dup = true;
             break;
           }
@@ -113,7 +114,7 @@ class TrainETA extends React.Component {
                     <button type="submit" >Submit</button>
                     <br/><br/>
                 </form>
-                <button onClick={this.handleFav.bind(this, this.state.trainColor, this.state.train)}>
+                <button onClick={this.handleFav.bind(this, this.state.trainColor, this.state.train, this.state.trainStop)}>
                         Add to Favorite
                 </button>
             <hr/>

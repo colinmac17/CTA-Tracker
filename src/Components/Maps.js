@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
 const dataCategories = [
@@ -67,12 +67,7 @@ class MapComponent extends React.Component {
     if(getArray !== 0){
       this.setState({favs: getArray})
     }
-    //below is for the redirect component
-    const getDirect = JSON.parse(localStorage.getItem("redirect") || '0');
-    if(getDirect !== 0){
-      this.setState({default_category: getDirect[0].category});
-      this.setState({default_take: getDirect[0].take});
-    }
+
   }
 
 
@@ -101,52 +96,12 @@ class MapComponent extends React.Component {
     window.open(url);
   }
 
-  handleFav(event){
-    let array = JSON.parse(localStorage.getItem("favorites") || '0');
-    let Obj = {category: this.state.category, take: this.state.take};
-    let dup = false;
-    for(let i = 0; i < array.length; i++){
-      if(array[i].take === Obj.take){
-        dup = true;
-        break;
-      }
-    }
-    if(dup){
-      window.alert("Already added this to fav list. ")
-    }
-    else{
-      if(!(array instanceof Array)){
-        array = [array]
-      }
-      array.push(Obj);
-      this.setState({favorites: array})
-      localStorage.setItem("favorites", JSON.stringify(array));
-    }
-  }
 
 render() {
   const category = this.state.category;
   const take = this.state.take;
   const hasCategory = category.length !== 0;
   const hasTake = take.length !== 0 && take !== '--Choose Take--';
-
-  const default_category = this.state.default_category;
-  const default_take = this.state.default_take;
-
-  function isDefaultCategory(name){
-    if(name === default_category){
-      return true;
-    }
-    return false;
-}
-
-  function isDefaultTake(name){
-      if(name === default_take){
-        return true;
-      }
-      return false;
-  }
-  
 
   return (
       <div>
@@ -176,11 +131,8 @@ render() {
             Show Map
           </button>
           <br/><br/>
-          <button onClick={this.handleFav.bind(this, this.state.category, this.state.take)} disabled={!hasTake}>
-            Add to Fav
-          </button>
 
-
+{/* 
           <br/><br/>
           <p>Prefilling below form with data that redirect from the Favorites page </p>
           <div style={{ display: 'inline-block' }}>
@@ -202,7 +154,7 @@ render() {
                   return <option key={key} selected={isDefaultTake(e.name)}>{e.name}</option>;
                 })}
               </select>
-          </div>
+          </div> */}
 
       </div>
   );
