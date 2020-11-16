@@ -5,37 +5,37 @@ class ShowFav extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      favs:[],
+      favs_train:[],
     };
     this.showFav = this.showFav.bind(this);
   }
 
   componentDidMount(){
-    const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
+    const getArray = JSON.parse(localStorage.getItem("favorites_train") || '0');
 
     if(getArray !== 0){
-      this.setState({favs: getArray})
+      this.setState({favs_train: getArray})
     }
   }
 
   deleteFav(key){
-    const getArray = JSON.parse(localStorage.getItem("favorites") || '0');
+    const getArray = JSON.parse(localStorage.getItem("favorites_train") || '0');
     const update = getArray.filter(e => e.train !== key);//remove the element
     this.setState(
-      {favs: update}
+      {favs_train: update}
     )
-    localStorage.setItem("favorites", JSON.stringify(update));
+    localStorage.setItem("favorites_train", JSON.stringify(update));
   }
 
 
   handleRedirect(item){
-    let array = JSON.parse(localStorage.getItem("redirect") || '0');
+    let array = JSON.parse(localStorage.getItem("redirect_train") || '0');
 
     if(!(array instanceof Array)){
         array = [array]
       }
     array.splice(0, 1, item);
-    localStorage.setItem("redirect", JSON.stringify(array));
+    localStorage.setItem("redirect_train", JSON.stringify(array));
   }
 
   showFav(item){
@@ -61,12 +61,14 @@ class ShowFav extends React.Component{
   }
 
   render(){
-    var favEntries = this.state.favs;
-    var listItems = favEntries.map(this.showFav);
+    var favTrainEntries = this.state.favs_train;
+    var listItems = favTrainEntries.map(this.showFav);
 
+    // var favBusEntries = this.state.favs_bus;
+    // var listItems2 = favBusEntries.map(this.showFav);
     return(
       <div>
-        <p>Your favoriteline(s): </p>
+        <p>Your favorite train line(s): </p>
         <ul>{listItems}</ul>
       </div>
     );

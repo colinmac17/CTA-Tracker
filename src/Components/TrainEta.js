@@ -23,7 +23,7 @@ class TrainETA extends React.Component {
     componentDidMount(){
         this.getTrains();
         //below is for the prefill component
-        const getDirect = JSON.parse(localStorage.getItem("redirect") || '0');
+        const getDirect = JSON.parse(localStorage.getItem("redirect_train") || '0');
         if(getDirect !== 0){
         this.setState({trainColor: getDirect[0].trainColor});
         this.setState({train: getDirect[0].train});
@@ -62,7 +62,7 @@ class TrainETA extends React.Component {
     }
 
     handleFav(event){
-        let array = JSON.parse(localStorage.getItem("favorites") || '0');
+        let array = JSON.parse(localStorage.getItem("favorites_train") || '0');
         let Obj = {trainColor: this.state.trainColor, train: this.state.train};
         let dup = false;
         for(let i = 0; i < array.length; i++){
@@ -79,7 +79,7 @@ class TrainETA extends React.Component {
             array = [array]
           }
           array.push(Obj);
-          localStorage.setItem("favorites", JSON.stringify(array));
+          localStorage.setItem("favorites_train", JSON.stringify(array));
         }
       }
 
