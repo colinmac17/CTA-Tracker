@@ -76,10 +76,10 @@ class TrainETA extends React.Component {
         }
         else{
           if(!(array instanceof Array)){
-            array = [array]
+            array = []
           }
-          array.push(Obj);
-          localStorage.setItem("favorites_train", JSON.stringify(array));
+        array.push(Obj);
+        localStorage.setItem("favorites_train", JSON.stringify(array));
         }
       }
 
