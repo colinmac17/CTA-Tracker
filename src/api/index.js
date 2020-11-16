@@ -57,7 +57,7 @@ const API = {
     },
     async getWeatherData(){
         try{
-            const res = await axios.get(WEATHER_URL, WEATHER_CONFIG);
+            const res = await axios.get(WEATHER_URL);
             return await res.data
         }catch(e){
             console.log("Failed to get weather data.")
