@@ -113,6 +113,30 @@ class BusEta extends React.Component {
     this.getBusPrediction()
   }
 
+  handleFav(event){
+    let array = JSON.parse(localStorage.getItem("favorites_bus") || '0');
+    let Obj = {selectedRoute: this.state.selectedRoute, selectedDirection: this.state.selectedDirection, busStopId: this.state.busStopId};
+    let dup = false;
+    for(let i = 0; i < array.length; i++){
+      if(array[i].selectedRoute === Obj.selectedRoute && array[i].selectedDirection === Obj.selectedDirection && array[i].busStopId === Obj.busStopId){
+        dup = true;
+        break;
+      }
+    }
+    if(dup){
+      window.alert("Already added this train to the fav list. ")
+    }
+    else{
+      if(!(array instanceof Array)){
+        array = []
+      }
+
+        array.push(Obj);
+        localStorage.setItem("favorites_bus", JSON.stringify(array));
+ 
+    }
+  }
+
   render(){
 
     return (
@@ -157,9 +181,11 @@ class BusEta extends React.Component {
               }
 
             </label>
-            {/* <button type="submit">Submit</button> */}
+            <button type="submit">Submit</button>
           </form>
-
+          <button onClick={this.handleFav.bind(this, this.state.selectedRoute, this.state.selectedDirection, this.state.busStopId)}>
+                        Add to Favorite
+          </button>
           <hr/>
 
           <div id="predictions">
