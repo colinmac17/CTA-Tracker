@@ -2,6 +2,9 @@ import React from 'react';
 import '../index.css';
 import {API, BUS_URL, CONFIG} from '../api/';
 import busData from '../assets/data/busRoutes.json'
+import BusCard from "./BusCard";
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 
 class BusEta extends React.Component {
@@ -139,6 +142,20 @@ class BusEta extends React.Component {
 
   render(){
 
+    const busDataNotLoaded = (
+      <Typography gutterBottom variant="h4" component="h4" >
+          No busses expected at this time.
+      </Typography>
+    );
+           
+    const busDataLoaded = (
+      <Grid container spacing={1}>
+          <Grid item xs={12}>
+              <BusCard direction={this.state.selectedDirection} destination={this.state.destination} route={this.state.selectedRoute} arrivalTime={this.state.arrivalTime}/>
+          </Grid>
+      </Grid>
+    );
+
     return (
       <div>
           <div>
@@ -187,11 +204,12 @@ class BusEta extends React.Component {
                         Add to Favorite
           </button>
           <hr/>
-
+          
+          <div><h2>Schedule:</h2></div>
           <div id="predictions">
             { this.state.arrivalTime ?
-              <h3> The next {this.state.selectedDirection} {this.state.selectedRoute} bus towards {this.state.destination} arrives in {this.state.arrivalTime} min </h3>
-            : this.state.message ?
+              busDataLoaded
+              : this.state.message ?
               <h3> {this.state.selectedDirection} {this.state.selectedRoute}:  {this.state.message}</h3>
             :<h3>No Information Available</h3>
             }
