@@ -1,7 +1,10 @@
 import React from 'react';
 import '../index.css';
 import {API, ARRIVALS_URL, CONFIG} from '../api/';
-import trainLookup from '../assets/data/trainStops.json'
+import trainLookup from '../assets/data/trainStops.json';
+import TrainCard from "./TrainCard";
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
 
 class TrainETA extends React.Component {
 
@@ -89,6 +92,19 @@ class TrainETA extends React.Component {
         const {trainColor} = this.state
         const options = trainLookup[trainColor]
 
+        const busDataNotLoaded = (
+            <Typography gutterBottom variant="h4" component="h4" >
+                No trains expected at this time.
+            </Typography>
+        );
+
+        const busDataLoaded = (
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <TrainCard trainColor={this.state.trainColor} destination={this.state.destination} trainStop={this.state.trainStop} eta={this.state.nextTrain}/>
+                </Grid>
+            </Grid>
+            );
 
         return (
             <div>
@@ -118,11 +134,18 @@ class TrainETA extends React.Component {
                         Add to Favorite
                 </button>
             <hr/>
-
-            <h3> Currently Viewing: {this.state.trainColor}</h3>
-            <p>Current mapId Selection: {this.state.train}</p>
-            <p>The next {this.state.trainColor} line train at {this.state.trainStop} towards {this.state.destination} arrives at: {this.state.nextTrain}</p>
+            <div><h2>Schedule:</h2></div>
+            <div>
+            {this.state.data.length > 0 ? 
+            busDataLoaded 
+            : busDataNotLoaded
+            }
             </div>
+            
+            </div>
+
+            
+
         );
     }
 }
