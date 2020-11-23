@@ -1,5 +1,39 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { withStyles } from '@material-ui/styles';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import TrainIcon from '@material-ui/icons/Train';
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
+import Icon from '@material-ui/core/Icon';
+
+const styles = theme => ({
+  root: {
+    marginTop: "20px",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection:"row",
+    paddingLeft: 20,
+    paddingRight:20,
+    paddingTop:40,
+    paddingBottom: 50,
+  },
+  title: {
+    margin: '2.5rem',
+    textAlign:'center',
+
+  },
+  subtitle: {
+    margin: '0.5rem',
+  },
+  item: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+});
 
 class ShowFav extends React.Component{
   constructor(props){
@@ -64,46 +98,54 @@ class ShowFav extends React.Component{
   
 
   showTrainFav(item){
+    const { classes } = this.props;
     return (
       <div key={item.train}>
-        <li>
-        {/* {item.trainColor}: {item.train} {item.trainStop} */}
-        {item.trainColor}: {item.train} 
-        <button type="button" onClick={() => this.deleteTrainFav(item.train)}>
-          Remove
-        </button>
-        
-        <button type="button" onClick={() => this.handleTrainRedirect(item)}>
-          <Link to={{
-              pathname: '/train-eta',
-            }}
+        <Grid item className={classes.item}>
+          <Icon marginRight="10px">
+            <TrainIcon color='primary'/>
+          </Icon>
+          <Link 
+              to={{pathname: '/train-eta',}}
+              onClick={() => this.handleTrainRedirect(item)}
+              >
+              {item.trainColor}: {item.train}
+            </Link>
+          <IconButton
+              onClick={() => this.deleteTrainFav(item.train)}
             >
-            Redirect to TRAIN page with this info prefilled
-          </Link>
-        </button>
-        </li>
+            <DeleteIcon/>
+          </IconButton>
+        </Grid>
       </div>
     )
   }
 
   showBusFav(item){
+    const { classes } = this.props;
     return (
       <div key={item.selectedRoute}>
-        <li>
-        {item.selectedRoute} - {item.selectedDirection} - {item.busStopId} 
-        <button type="button" onClick={() => this.deleteBusFav(item)}>
-          Remove
-        </button>
-        
-        <button type="button" onClick={() => this.handleBusRedirect(item)}>
-            Show bus CTA page
-        </button>
-        </li>
+        <Grid item className={classes.item}>
+          <Icon marginRight="10px">
+            <DirectionsBusIcon color='primary'/>
+          </Icon>
+          <Link 
+              onClick={() => this.handleBusRedirect(item)}
+              >
+              {item.selectedRoute} - {item.selectedDirection} - {item.busStopId} 
+          </Link>
+          <IconButton
+              onClick={() => this.deleteBusFav(item)}
+          >
+            <DeleteIcon/>
+          </IconButton>
+        </Grid>
       </div>
     )
   }
 
   render(){
+    const { classes } = this.props;
     var favTrainEntries = this.state.favs_train;
     var listItems = favTrainEntries.map(this.showTrainFav);
 
@@ -111,24 +153,48 @@ class ShowFav extends React.Component{
     var listItems2 = favBusEntries.map(this.showBusFav);
     return(
       <div>
-        <p>Your favorite train line(s): </p>
-        <ul>{listItems}</ul>
-        <br/><br/>
-        <p>Your favorite bus line(s): </p>
-        <ul>{listItems2}</ul>
+        <Typography className={classes.title} >
+          <Box fontWeight="fontWeightMedium" fontSize="h4.fontSize" m={1}>
+          Your Favorite Stops 
+          </Box>
+        </Typography>
+        <Grid container 
+                direction="column"
+                justify="center"
+                alignItems="center">
+          <Grid item>
+            <Typography className={classes.subtitle} >
+              Favorite train stop(s):
+            </Typography>
+          </Grid>
+          <Grid container
+                direction="column"
+                justify="center"
+                alignItems="center">
+            {listItems}
+          </Grid>
+        </Grid>
+
+        <Grid container 
+                direction="column"
+                justify="center"
+                alignItems="center">
+          <Grid item>
+            <Typography className={classes.subtitle} >
+              Favorite bus stop(s):
+            </Typography>
+          </Grid>
+          <Grid container
+                direction="column"
+                justify="center"
+                alignItems="center">
+            {listItems2}
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
-
-
-const Favorites = (props) => {
-    return (
-        <div>
-            <h2>Favorites</h2>
-            <ShowFav />
-        </div>
-    )}
     
-export default Favorites;
+export default withStyles(styles)(ShowFav);
