@@ -1,4 +1,14 @@
 import React from 'react';
+import { withStyles } from '@material-ui/styles';
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 
 const dataCategories = [
@@ -43,6 +53,38 @@ const dataLines = [
   { name: "155", Id: "155", categoryName: "Bus" },
 ];
 
+const styles = theme => ({
+
+  root: {
+    marginTop: "20px",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection:"row",
+    paddingLeft: 20,
+    paddingRight:20,
+    paddingTop:40,
+    paddingBottom: 50,
+
+  },
+  formControl: {
+    margin: theme.spacing(0),
+    paddingBottom: 10,
+    minWidth: 120,
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+  button: {
+    marginTop: "20px",
+    background:'#FFB8B8',
+    color: 'white',
+  },
+  typography: {
+    margin: '2.5rem',
+    textAlign:'center',
+
+  }
+});
 
 class MapComponent extends React.Component {
   constructor(props){
@@ -98,75 +140,59 @@ class MapComponent extends React.Component {
 
 
 render() {
-  const category = this.state.category;
   const take = this.state.take;
-  const hasCategory = category.length !== 0;
-  const hasTake = take.length !== 0 && take !== '--Choose Take--';
+  const hasTake = take.length !== 0;
+  const { classes } = this.props;
 
   return (
       <div>
-        <br/><br/>
-          <div style={{ display: 'inline-block' }}>
-              Categories
-              <br />
-              <select placeholder="Category" data={dataCategories}  onChange={this.categoryChange}>
-                <option>--Choose Category--</option>
+        <Typography className={classes.typography} >
+          <Box fontWeight="fontWeightMedium" fontSize="h4.fontSize" m={1}>
+          MAPS 
+          </Box>
+        </Typography>
+
+        <Card variant="outlined" className={classes.root}>
+  
+            <FormControl className={classes.formControl} fullWidth={true}>
+              <InputLabel>Dropdown menu to choose bus/train</InputLabel>
+              <Select
+                value={this.category}
+                onChange={this.categoryChange}
+                variant='outlined'
+              >
                 {dataCategories.map((e, key) => {
-                  return <option key={key}>{e.categoryName}</option>;
-                })}
-              </select>
-          </div>
-          <div style={{ display: 'inline-block', marginLeft: '30px' }}>
-              Takes
-              <br />
-              <select placeholder="Take" disabled={!hasCategory} data={this.state.takes}  onChange={this.takeChange}>
-                <option>--Choose Take--</option>
+                    return <MenuItem value={e.categoryName}>{e.categoryName}</MenuItem>;
+                  })}
+              </Select>
+            </FormControl>
+                
+            <FormControl className={classes.formControl} fullWidth={true}>
+            <InputLabel>Choose train/bus line</InputLabel>
+              <Select
+                  value={this.take}
+                  onChange={this.takeChange}
+                  variant='outlined'
+                >
                 {this.state.takes.map((e, key) => {
-                  return <option key={key}>{e.name}</option>;
-                })}
-              </select>
-          </div>
-          <br/><br/>
-          <button onClick={this.handleClick.bind(this, this.state.category, this.state.take)} disabled={!hasTake}>
-            Show Map
-          </button>
-          <br/><br/>
-
-{/* 
-          <br/><br/>
-          <p>Prefilling below form with data that redirect from the Favorites page </p>
-          <div style={{ display: 'inline-block' }}>
-              Categories
-              <br />
-              <select placeholder="Category">
-                <option>--Choose Category--</option>
-                {dataCategories.map((e, key) => {
-                  return <option key={key} selected={isDefaultCategory(e.categoryName)}>{e.categoryName}</option>;
-                })}
-              </select>
-          </div>
-          <div style={{ display: 'inline-block', marginLeft: '30px' }}>
-              Takes
-              <br />
-              <select placeholder="Take" >
-                <option>--Choose Take--</option>
-                {dataLines.map((e, key) => {
-                  return <option key={key} selected={isDefaultTake(e.name)}>{e.name}</option>;
-                })}
-              </select>
-          </div> */}
-
+                    return <MenuItem value={e.name}>{e.name}</MenuItem>;
+                  })}
+              </Select> 
+            </FormControl>
+            <Button
+              variant="contained"
+              className={classes.button}
+              startIcon={<CloudUploadIcon />}
+              onClick={this.handleClick.bind(this, this.state.category, this.state.take)}
+              disabled={!hasTake}
+              fullWidth={true}
+            >
+              Go to CTA Map Page
+            </Button>
+        </Card>
       </div>
   );
 }
 }
 
-  const Maps = (props) => {
-    return(
-            <div>
-                <MapComponent/>              
-            </div>
-    )
-}
-
-export default Maps;
+export default withStyles(styles)(MapComponent);
