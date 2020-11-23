@@ -92,13 +92,13 @@ class TrainETA extends React.Component {
         const {trainColor} = this.state
         const options = trainLookup[trainColor]
 
-        const busDataNotLoaded = (
+        const trainDataNotLoaded = (
             <Typography gutterBottom variant="h4" component="h4" >
                 No trains expected at this time.
             </Typography>
         );
 
-        const busDataLoaded = (
+        const trainDataLoaded = (
             <Grid container spacing={1}>
                 <Grid item xs={12}>
                     <TrainCard trainColor={this.state.trainColor} destination={this.state.destination} trainStop={this.state.trainStop} eta={this.state.nextTrain}/>
@@ -137,8 +137,8 @@ class TrainETA extends React.Component {
             <div><h2>Schedule:</h2></div>
             <div>
             {this.state.data.length > 0 ? 
-            busDataLoaded 
-            : busDataNotLoaded
+            trainDataLoaded 
+            : trainDataNotLoaded
             }
             </div>
             

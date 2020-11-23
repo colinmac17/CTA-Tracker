@@ -16,10 +16,9 @@ const useStyles = makeStyles({
       flexDirection:"row"
     },
 
-  });
-  
+  });           
 
-const TrainCard = ({trainColor, trainStop, destination, eta}) => {
+const BusCard = ({direction, route, destination, arrivalTime}) => {
     const classes = useStyles();
 
     return(
@@ -27,17 +26,17 @@ const TrainCard = ({trainColor, trainStop, destination, eta}) => {
             
             <CardContent>
                 <Typography gutterBottom variant="h6" component="h3">
-                    {trainColor} line 
+                    {route} Bus 
                 </Typography>
                 <Typography variant="subtitle1" gutterBottom>
-                     at {trainStop} towards {destination}
+                    {direction} towards {destination}
                 </Typography>
                 <Typography variant="subtitle1" gutterBottom>
-                     will arrive at {eta}
+                     will arrive in {arrivalTime} min
                 </Typography>
             </CardContent>
         </Card>
     );
 }
 
-export default TrainCard;
+export default BusCard;
