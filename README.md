@@ -1,5 +1,7 @@
 # CTA WebApp with Weather Integration
 ### CSC436: Web Applications
+
+Netlify.app Deployment: https://clever-shannon-cce24d.netlify.app/ 
 #### GROUP 7
 1. Colin McAtee 
 2. Yu Qian
